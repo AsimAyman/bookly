@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:book_extchange/core/routing/routes.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/scheduler.dart';
+
 import 'package:go_router/go_router.dart';
 import 'package:meta/meta.dart';
 

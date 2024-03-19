@@ -8,7 +8,7 @@ import 'package:book_extchange/features/on_boarding/view/views/widgets/dot_indic
 import 'package:book_extchange/features/on_boarding/view/views/widgets/on_boarding_content.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:go_router/go_router.dart';
 
 class OnBoardingBody extends StatefulWidget {

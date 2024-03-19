@@ -1,15 +1,16 @@
+import 'package:book_extchange/core/utils/validator_handler.dart';
 import 'package:book_extchange/core/widgets/custom_main_button.dart';
 import 'package:book_extchange/core/widgets/custom_white_logo_with_text.dart';
-import 'package:book_extchange/features/auth/view/view_models/sign_up_cubit/sign_up_cubit.dart';
+import 'package:book_extchange/features/auth/view/views/widgets/custom_back_button.dart';
+
+import 'package:book_extchange/features/auth/view/views/widgets/sign_up_drop_down_menu.dart';
 import 'package:book_extchange/features/auth/view/views/widgets/custom_head_text.dart';
-import 'package:book_extchange/features/auth/view/views/widgets/custom_searchable_drop_down.dart';
 import 'package:book_extchange/features/auth/view/views/widgets/dont_have_account.dart';
+import 'package:book_extchange/features/auth/view/views/widgets/have_account.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:book_extchange/core/utils/measures.dart';
 import 'package:book_extchange/core/widgets/custom_text_form_field.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 class SignUpBody extends StatefulWidget {
   const SignUpBody({
@@ -22,12 +23,16 @@ class SignUpBody extends StatefulWidget {
 
 class _SignUpBodyState extends State<SignUpBody> {
   final TextEditingController emailController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController cityController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  GlobalKey<FormState> formKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
+    return Form(
+      key: formKey,
+      child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: CustomScrollView(
           slivers: [
@@ -37,7 +42,7 @@ class _SignUpBodyState extends State<SignUpBody> {
                   SizedBox(
                     height: deviceHeight * .04,
                   ),
-                  const BackButton(),
+                  const CustomBackButton(),
                   SizedBox(
                     height: deviceHeight * .04,
                   ),
@@ -45,7 +50,9 @@ class _SignUpBodyState extends State<SignUpBody> {
                   const SizedBox(
                     height: 16,
                   ),
-                  const CustomHeadText(txt: "Sign Up",),
+                  const CustomHeadText(
+                    txt: "Sign Up",
+                  ),
                   const SizedBox(
                     height: 24,
                   ),
@@ -53,14 +60,16 @@ class _SignUpBodyState extends State<SignUpBody> {
                     textEditingController: emailController,
                     hintTxt: "Email",
                     iconData: Icons.email,
+                    validator: ValidatorHandler.emailValidator,
                   ),
                   const SizedBox(
                     height: 8,
                   ),
                   CustomTextFormField(
-                    textEditingController: emailController,
+                    textEditingController: nameController,
                     hintTxt: "Name",
                     iconData: Icons.email,
+                    validator: ValidatorHandler.otherValidator,
                   ),
                   const SizedBox(
                     height: 8,
@@ -70,16 +79,24 @@ class _SignUpBodyState extends State<SignUpBody> {
                     hintTxt: "Password",
                     iconData: Icons.lock,
                     isPassword: true,
+                    validator: ValidatorHandler.passwordValidator,
                   ),
                   const SizedBox(
                     height: 8,
                   ),
                   Row(
                     children: [
-                      const CustomSearchableDropDown(),
+                      SignUpDropDownMenu(),
                       Spacer(),
-                      const CustomSearchableDropDown(),
-
+                      SizedBox(
+                        width: deviceWidth * 0.45,
+                        child: CustomTextFormField(
+                          textEditingController: cityController,
+                          hintTxt: "City",
+                          iconData: Icons.location_city,
+                          validator: ValidatorHandler.otherValidator,
+                        ),
+                      ),
                     ],
                   ),
                   const SizedBox(
@@ -94,12 +111,15 @@ class _SignUpBodyState extends State<SignUpBody> {
                 children: [
                   const Spacer(),
                   CustomMainButton(
-                    txt: "Sign Up",
-                    onTap: () {
-                      BlocProvider.of<SignUpCubit>(context).getCities();
-                    },
-                  ),
-                  const DontHaveAccount(),
+                      txt: "Sign Up",
+                      onTap: () {
+                        if (formKey.currentState!.validate()) {
+                          print("yes");
+                        } else {
+                          print("no");
+                        }
+                      }),
+                  const HaveAccount(),
                   const SizedBox(
                     height: 16,
                   ),
@@ -112,6 +132,3 @@ class _SignUpBodyState extends State<SignUpBody> {
     );
   }
 }
-
-
-

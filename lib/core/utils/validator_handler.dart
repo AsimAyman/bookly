@@ -4,6 +4,8 @@ class ValidatorHandler {
       return "You should enter valid email";
     }else if (txt.trim().contains(" ")){
       return "Email should not have spaces";
+    }else if (txt.isEmpty){
+      return "Email is Required";
     }else{
       return null;
     }
@@ -15,6 +17,18 @@ class ValidatorHandler {
       return "Password should be more than 6 chars";
     }else if (txt.contains(" ")){
       return "Password should not have spaces";
+    }else if (txt.isEmpty) {
+      return "Password is Required";
+    }else{
+      return null;
+    }
+  };
+
+  static String? Function(String?)? otherValidator = (String? txt){
+    if(txt!.isEmpty){
+      return "This Field is Required";
+    }else if (txt.contains(" ")){
+      return "Can't Enter Spaces between text in this field";
     }else{
       return null;
     }
