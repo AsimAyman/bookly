@@ -5,8 +5,13 @@ final ThemeData theme = ThemeData().copyWith(
   colorScheme: ColorScheme.fromSeed(
     seedColor: const Color(0xff246BFE),
     primary: const Color(0xff246BFE),
+
   ),
   textTheme: GoogleFonts.poppinsTextTheme().copyWith(
 
   ),
 );
+
+abstract class  ColorsHandler{
+  static const Color kGrey1 = Color(0xffFAFAFA);
+}

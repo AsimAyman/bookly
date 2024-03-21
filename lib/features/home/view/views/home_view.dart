@@ -14,6 +14,7 @@ class HomeView extends StatelessWidget {
       child: BlocBuilder<BottomNavCubit, BottomNavState>(
         builder: (context, state) {
           return Scaffold(
+            backgroundColor: Colors.white,
             key: BlocProvider.of<BottomNavCubit>(context).scaffoldKey,
             drawer: Drawer(),
             bottomNavigationBar: Container(

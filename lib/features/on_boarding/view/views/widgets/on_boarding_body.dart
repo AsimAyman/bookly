@@ -4,7 +4,7 @@ import 'package:book_extchange/core/routing/routes.dart';
 import 'package:book_extchange/core/utils/measures.dart';
 import 'package:book_extchange/core/widgets/custom_main_button.dart';
 import 'package:book_extchange/features/on_boarding/data/models/on_board_content_model.dart';
-import 'package:book_extchange/features/on_boarding/view/views/widgets/dot_indicator.dart';
+import 'package:book_extchange/core/widgets/dot_indicator.dart';
 import 'package:book_extchange/features/on_boarding/view/views/widgets/on_boarding_content.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

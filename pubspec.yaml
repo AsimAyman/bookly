@@ -55,6 +55,7 @@ dependencies:
   dartz: ^0.10.1
   dropdown_button2: ^2.3.9
   google_nav_bar: ^5.0.6
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:
