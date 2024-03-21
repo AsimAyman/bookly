@@ -1,10 +1,12 @@
 
 
+// ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
 import 'package:book_extchange/features/auth/data/models/govern_model.dart';
+import 'package:flutter/material.dart';
 
 
-import 'package:meta/meta.dart';
+
 
 part 'sign_up_state.dart';
 

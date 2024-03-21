@@ -1,5 +1,5 @@
 import 'package:book_extchange/features/home/view/view_models/bottom_nav_cubit/bottom_nav_cubit.dart';
-import 'package:book_extchange/features/home/view/views/widgets/home_body.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -16,16 +16,16 @@ class HomeView extends StatelessWidget {
           return Scaffold(
             backgroundColor: Colors.white,
             key: BlocProvider.of<BottomNavCubit>(context).scaffoldKey,
-            drawer: Drawer(),
+            drawer: const Drawer(),
             bottomNavigationBar: Container(
               color: Theme.of(context).colorScheme.background,
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
               child: GNav(
                 activeColor: Colors.white,
                 color: Colors.black,
                 tabBackgroundColor: Theme.of(context).colorScheme.primary,
                 gap: 8,
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 selectedIndex:
                     BlocProvider.of<BottomNavCubit>(context).selectedIndex,
                 onTabChange: (value) {

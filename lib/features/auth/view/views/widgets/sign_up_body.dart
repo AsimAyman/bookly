@@ -5,9 +5,9 @@ import 'package:book_extchange/features/auth/view/views/widgets/custom_back_butt
 
 import 'package:book_extchange/features/auth/view/views/widgets/sign_up_drop_down_menu.dart';
 import 'package:book_extchange/features/auth/view/views/widgets/custom_head_text.dart';
-import 'package:book_extchange/features/auth/view/views/widgets/dont_have_account.dart';
+
 import 'package:book_extchange/features/auth/view/views/widgets/have_account.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:book_extchange/core/utils/measures.dart';
 import 'package:book_extchange/core/widgets/custom_text_form_field.dart';
@@ -86,8 +86,8 @@ class _SignUpBodyState extends State<SignUpBody> {
                   ),
                   Row(
                     children: [
-                      SignUpDropDownMenu(),
-                      Spacer(),
+                      const SignUpDropDownMenu(),
+                      const Spacer(),
                       SizedBox(
                         width: deviceWidth * 0.45,
                         child: CustomTextFormField(

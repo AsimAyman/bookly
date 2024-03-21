@@ -1,5 +1,5 @@
 import 'package:book_extchange/features/chat/view/views/widgets/chat_body.dart';
-import 'package:book_extchange/features/home/view/views/widgets/home_body.dart';
+
 import 'package:flutter/material.dart';
 
 class ChatView extends StatelessWidget {

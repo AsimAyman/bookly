@@ -6,7 +6,7 @@ import 'package:book_extchange/core/widgets/custom_main_button.dart';
 import 'package:book_extchange/features/on_boarding/data/models/on_board_content_model.dart';
 import 'package:book_extchange/core/widgets/dot_indicator.dart';
 import 'package:book_extchange/features/on_boarding/view/views/widgets/on_boarding_content.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
@@ -75,7 +75,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
           Align(
             alignment: Alignment.topRight,
             child: GestureDetector(onTap: () {
-              NavToLogin(context);
+              navToLogin(context);
             },child: Text("Skip", style: Theme.of(context).textTheme.bodyMedium)),
           ),
           SizedBox(
@@ -118,7 +118,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
             txt: _pageIndex == 2 ? "Start" : "Next",
             onTap: () {
               if(_pageIndex == 2){
-                NavToLogin(context);
+                navToLogin(context);
               }else{
                 goNextPage();
               }
@@ -133,7 +133,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
     );
   }
 
-  void NavToLogin(BuildContext context) {
+  void navToLogin(BuildContext context) {
     GoRouter.of(context).pushReplacementNamed(Routes.kLoginView);
   }
 
