@@ -41,7 +41,7 @@ class ServerSideError extends Failures{
       return ServerSideError('Internal Server Error, Please Try again Later or contact our support');
 
     }else{
-      return ServerSideError(dioException.response?.data['ErrorMessage'] ?? 'Oops, There is an Unknown Error, Try Later Or Contact Our Support');
+      return ServerSideError(dioException.response?.data['message'] ?? 'Oops, There is an Unknown Error, Try Later Or Contact Our Support');
 
     }
   }

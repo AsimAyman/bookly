@@ -24,6 +24,25 @@ class ValidatorHandler {
     }
   };
 
+  static String? Function(String?)? phoneValidator = (String? txt){
+    if(txt!.isEmpty){
+      return "This Field is Required";
+    }else if(txt.length != 11){
+      return "You Have to Enter Valid Phone Number";
+    }else{
+      return null;
+    }
+  };
+  static String? Function(String?)? cityValidator = (String? txt){
+    if(txt!.isEmpty){
+      return "This Field is Required";
+    }else if(txt.length > 16){
+      return "City Should be Less than 16 char";
+    }else{
+      return null;
+    }
+  };
+
   static String? Function(String?)? otherValidator = (String? txt){
     if(txt!.isEmpty){
       return "This Field is Required";

@@ -6,6 +6,7 @@ import 'package:book_extchange/features/auth/view/views/sign_up_view.dart';
 import 'package:book_extchange/features/book_details/view/views/book_details_view.dart';
 import 'package:book_extchange/features/home/view/views/home_view.dart';
 import 'package:book_extchange/features/on_boarding/view/views/on_boarding_view.dart';
+import 'package:book_extchange/features/splash/view/views/splash_view.dart';
 
 import 'package:go_router/go_router.dart';
 
@@ -18,11 +19,11 @@ abstract class Routes {
   static const kBookDetailsView = 'BookDetailsView';
 
   static final router = GoRouter(routes: [
-    // GoRoute(
-    //   name: kSplashView,
-    //   path: '/',
-    //   builder: (context, state) => const SplashView(),
-    // ),
+    GoRoute(
+      name: kSplashView,
+      path: '/',
+      builder: (context, state) => const SplashView(),
+    ),
     GoRoute(
       name: kOnBoardingView,
       path: '/onBoardingView',
@@ -59,7 +60,7 @@ abstract class Routes {
     ),
     GoRoute(
       name: kHomeView,
-      path: '/',
+      path: '/HomeView',
       pageBuilder: (context, state) =>
           RouterTransitionFactory.getTransitionPage(
             context: context,
