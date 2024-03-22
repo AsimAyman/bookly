@@ -1,12 +1,18 @@
+import 'package:book_extchange/core/routing/routes.dart';
 import 'package:book_extchange/core/utils/validator_handler.dart';
+import 'package:book_extchange/core/widgets/custom_error_dialog.dart';
 import 'package:book_extchange/core/widgets/custom_main_button.dart';
 import 'package:book_extchange/core/widgets/custom_white_logo_with_text.dart';
+import 'package:book_extchange/features/auth/view/view_models/login_cubit/login_cubit.dart';
 import 'package:book_extchange/features/auth/view/views/widgets/custom_head_text.dart';
 import 'package:book_extchange/features/auth/view/views/widgets/dont_have_account.dart';
 import 'package:book_extchange/features/auth/view/views/widgets/forget_password.dart';
 import 'package:flutter/material.dart';
 import 'package:book_extchange/core/utils/measures.dart';
 import 'package:book_extchange/core/widgets/custom_text_form_field.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class LoginBody extends StatefulWidget {
   const LoginBody({
@@ -18,13 +24,24 @@ class LoginBody extends StatefulWidget {
 }
 
 class _LoginBodyState extends State<LoginBody> {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+
   GlobalKey<FormState> formKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Form(
+    return BlocConsumer<LoginCubit, LoginState>(
+  listener: (context, state) {
+    if (state is LoginFailure) {
+      customErrorDialog(context,
+          title: "Error in Login", content: state.errorMessage);
+    }
+    if (state is LoginSuccessful) {
+      GoRouter.of(context).pushReplacementNamed(Routes.kHomeView);
+    }
+  },
+  builder: (context, state) {
+    return ModalProgressHUD(
+      inAsyncCall: state is LoginLoading,
+      child: Form(
         key: formKey,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -46,7 +63,7 @@ class _LoginBodyState extends State<LoginBody> {
                       height: 24,
                     ),
                     CustomTextFormField(
-                      textEditingController: emailController,
+                      textEditingController: BlocProvider.of<LoginCubit>(context).emailController,
                       hintTxt: "Email",
                       iconData: Icons.email,
 
@@ -56,7 +73,7 @@ class _LoginBodyState extends State<LoginBody> {
                       height: 16,
                     ),
                     CustomTextFormField(
-                      textEditingController: passwordController,
+                      textEditingController: BlocProvider.of<LoginCubit>(context).passwordController,
                       hintTxt: "Password",
                       iconData: Icons.lock,
                       isPassword: true,
@@ -79,11 +96,11 @@ class _LoginBodyState extends State<LoginBody> {
                   children: [
                     const Spacer(),
                     CustomMainButton(txt: "Login",onTap: () {
-                        if(formKey.currentState!.validate()){
-                          print("yes");
-                        }else{
-                          print("no");
-                        }
+                      if(formKey.currentState!.validate()){
+                        BlocProvider.of<LoginCubit>(context).login();
+                      }else{
+                        print("no");
+                      }
                     },),
                     const DontHaveAccount(),
                     const SizedBox(
@@ -97,6 +114,8 @@ class _LoginBodyState extends State<LoginBody> {
         ),
       ),
     );
+  },
+);
   }
 }
 

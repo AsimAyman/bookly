@@ -1,4 +1,6 @@
+import 'package:book_extchange/features/auth/view/view_models/login_cubit/login_cubit.dart';
 import 'package:book_extchange/features/home/view/view_models/bottom_nav_cubit/bottom_nav_cubit.dart';
+import 'package:book_extchange/features/home/view/views/widgets/custom_home_drawer.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,9 +16,18 @@ class HomeView extends StatelessWidget {
       child: BlocBuilder<BottomNavCubit, BottomNavState>(
         builder: (context, state) {
           return Scaffold(
+            floatingActionButton: FloatingActionButton(onPressed: () {
+              print(BlocProvider.of<LoginCubit>(context).isSignedIn);
+              print(BlocProvider.of<LoginCubit>(context).userModel.id);
+              print(BlocProvider.of<LoginCubit>(context).userModel.name);
+              print(BlocProvider.of<LoginCubit>(context).userModel.email);
+              print(BlocProvider.of<LoginCubit>(context).userModel.mobileNumber);
+              print(BlocProvider.of<LoginCubit>(context).userModel.accessToken);
+
+            },),
             backgroundColor: Colors.white,
             key: BlocProvider.of<BottomNavCubit>(context).scaffoldKey,
-            drawer: const Drawer(),
+            drawer: CustomHomeDrawer(),
             bottomNavigationBar: Container(
               color: Theme.of(context).colorScheme.background,
               padding: const EdgeInsets.all(15),
@@ -75,3 +86,4 @@ class HomeView extends StatelessWidget {
     );
   }
 }
+

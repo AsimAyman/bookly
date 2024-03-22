@@ -2,6 +2,7 @@
 
 import 'package:book_extchange/core/routing/navigation_animation.dart';
 import 'package:book_extchange/features/auth/view/views/login_view.dart';
+import 'package:book_extchange/features/auth/view/views/reset_password_view.dart';
 import 'package:book_extchange/features/auth/view/views/sign_up_view.dart';
 import 'package:book_extchange/features/book_details/view/views/book_details_view.dart';
 import 'package:book_extchange/features/home/view/views/home_view.dart';
@@ -15,6 +16,7 @@ abstract class Routes {
   static const kOnBoardingView = 'onBoardingView';
   static const kLoginView = 'LoginView';
   static const kSignUphView = 'SignUphView';
+  static const kResetPasswordView = 'ResetPasswordView ';
   static const kHomeView = 'HomeView';
   static const kBookDetailsView = 'BookDetailsView';
 
@@ -57,6 +59,17 @@ abstract class Routes {
         child: const SignUpView(),
         type: 'fade', // fade|rotation|scale|size|slide
       ),
+    ),
+    GoRoute(
+      name: kResetPasswordView,
+      path: '/ResetPasswordView',
+      pageBuilder: (context, state) =>
+          RouterTransitionFactory.getTransitionPage(
+            context: context,
+            state: state,
+            child: const ResetPasswordView(),
+            type: 'fade', // fade|rotation|scale|size|slide
+          ),
     ),
     GoRoute(
       name: kHomeView,

@@ -1,4 +1,6 @@
+import 'package:book_extchange/core/routing/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ForgetPassword extends StatelessWidget {
   const ForgetPassword({
@@ -11,7 +13,7 @@ class ForgetPassword extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            print("object");
+            GoRouter.of(context).pushNamed(Routes.kResetPasswordView);
           },
           child: Text(
             'Forgot your password?',

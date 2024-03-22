@@ -4,8 +4,10 @@ import 'package:book_extchange/core/routing/routes.dart';
 import 'package:book_extchange/core/utils/measures.dart';
 
 import 'package:book_extchange/core/utils/theme.dart';
+import 'package:book_extchange/features/auth/view/view_models/login_cubit/login_cubit.dart';
 
 import 'package:book_extchange/features/splash/view/view_models/splash_cubit/splash_cubit.dart';
+import 'package:dio/dio.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,20 +20,22 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-      deviceWidth = MediaQuery.sizeOf(context).width;
-      deviceHeight = MediaQuery.sizeOf(context).height;
+    deviceWidth = MediaQuery.sizeOf(context).width;
+    deviceHeight = MediaQuery.sizeOf(context).height;
     return MultiBlocProvider(
       providers: [
+        BlocProvider(create: (context) => LoginCubit(getIt.get<Dio>())),
         BlocProvider(create: (context) => SplashCubit()),
       ],
-  child: MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      routerConfig: Routes.router,
-      title: 'Flutter Demo',
-      theme: theme,
-    ),
-);
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        routerConfig: Routes.router,
+        title: 'Flutter Demo',
+        theme: theme,
+      ),
+    );
   }
 }
