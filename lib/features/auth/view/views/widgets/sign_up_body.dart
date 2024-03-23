@@ -120,7 +120,9 @@ class _SignUpBodyState extends State<SignUpBody> {
                         ),
                         Row(
                           children: [
-                            const SignUpDropDownMenu(),
+                             SignUpDropDownMenu(onChange: (value) {
+                              BlocProvider.of<SignUpCubit>(context).selectNewGovern(value!);
+                            },),
                             const Spacer(),
                             SizedBox(
                               width: deviceWidth * 0.45,

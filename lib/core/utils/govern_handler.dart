@@ -31,4 +31,15 @@ abstract class GovernHandler {
     GovernModel(name: "سوهاج", id: '27'),
   ];
 
+  static GovernModel? getGoverModelByName(String name){
+    GovernModel? governModel;
+    for(GovernModel govern in allGoverns){
+      if(govern.name == name){
+        governModel = govern;
+      }
+    }
+
+    return governModel;
+  }
+
 }

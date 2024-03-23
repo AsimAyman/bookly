@@ -32,7 +32,9 @@ class _ResetPasswordBodyState extends State<ResetPasswordBody> {
               title: "Error", content: state.errorMessage);
         }
         if (state is ResetPasswordSuccessful) {
-          customSucessDialog(context, title: "Sent", content: "sent");
+          customSucessDialog(context,
+              title: "Email Sent Successfully",
+              content: "Check your Email and reset our password");
         }
       },
       builder: (context, state) {
@@ -93,6 +95,8 @@ class _ResetPasswordBodyState extends State<ResetPasswordBody> {
                           txt: "Send Email",
                           onTap: () {
                             if (formKey.currentState!.validate()) {
+                              BlocProvider.of<ResetPasswordCubit>(context)
+                                  .resetPassword();
                             } else {
                               print("no");
                             }

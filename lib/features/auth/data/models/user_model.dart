@@ -1,10 +1,10 @@
 class UserModel {
   final int id;
-  final String name;
+   String name;
   final String email;
   final String mobileNumber;
-  final String govern;
-  final String city;
+   String govern;
+   String city;
   final String accessToken;
 
   UserModel({

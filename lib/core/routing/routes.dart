@@ -7,6 +7,7 @@ import 'package:book_extchange/features/auth/view/views/sign_up_view.dart';
 import 'package:book_extchange/features/book_details/view/views/book_details_view.dart';
 import 'package:book_extchange/features/home/view/views/home_view.dart';
 import 'package:book_extchange/features/on_boarding/view/views/on_boarding_view.dart';
+import 'package:book_extchange/features/profile/view/views/profile_view.dart';
 import 'package:book_extchange/features/splash/view/views/splash_view.dart';
 
 import 'package:go_router/go_router.dart';
@@ -19,6 +20,9 @@ abstract class Routes {
   static const kResetPasswordView = 'ResetPasswordView ';
   static const kHomeView = 'HomeView';
   static const kBookDetailsView = 'BookDetailsView';
+
+  static const kProfileView = 'ProfileView';
+
 
   static final router = GoRouter(routes: [
     GoRoute(
@@ -93,6 +97,19 @@ abstract class Routes {
             type: 'slide', // fade|rotation|scale|size|slide
           ),
     ),
+
+    GoRoute(
+      name: kProfileView,
+      path: '/ProfileView',
+      pageBuilder: (context, state) =>
+          RouterTransitionFactory.getTransitionPage(
+            context: context,
+            state: state,
+            child: const ProfileView(),
+            type: 'slide', // fade|rotation|scale|size|slide
+          ),
+    ),
+
 
     // temp
     // GoRoute(

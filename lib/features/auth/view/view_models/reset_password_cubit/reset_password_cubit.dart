@@ -16,7 +16,7 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
     emit(ResetPasswordLoading());
     try {
       var response = await _dio.post(
-        "${ApiHandler.baseUrl}reset-password",
+        "${ApiHandler.baseUrl}password/reset-password",
         options: Options(
           headers: {
             'Accept': 'application/json',

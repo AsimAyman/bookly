@@ -9,8 +9,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 
 class SignUpDropDownMenu extends StatefulWidget {
-  const SignUpDropDownMenu({super.key});
-
+  const SignUpDropDownMenu({super.key,required this.onChange,this.governModel});
+ final void Function(GovernModel? governModel) onChange;
+ final GovernModel? governModel;
   @override
   State<SignUpDropDownMenu> createState() => _SignUpDropDownMenuState();
 }
@@ -24,6 +25,7 @@ class _SignUpDropDownMenuState extends State<SignUpDropDownMenu> {
     // TODO: implement initState
     super.initState();
     items = GovernHandler.allGoverns;
+    selectedItem = widget.governModel;
   }
 
   @override
@@ -58,7 +60,7 @@ class _SignUpDropDownMenuState extends State<SignUpDropDownMenu> {
         onChanged: (value) {
           setState(() {
             selectedItem = value;
-            BlocProvider.of<SignUpCubit>(context).selectNewGovern(value!);
+            widget.onChange(value);
           });
         },
       ),

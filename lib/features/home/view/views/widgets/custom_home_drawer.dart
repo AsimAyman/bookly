@@ -45,11 +45,11 @@ class CustomHomeDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(
-              Icons.home,
+              Icons.person,
             ),
-            title: const Text('Page 1'),
+            title: const Text('Profile'),
             onTap: () {
-              // Navigator.pop(context);
+              GoRouter.of(context).pushNamed(Routes.kProfileView);
             },
           ),
           ListTile(
