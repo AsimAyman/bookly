@@ -40,7 +40,7 @@ class _ProfileBodyState extends State<ProfileBody> {
       listener: (context, state) {
         if (state is ProfileFailure) {
           customErrorDialog(context,
-              title: "Error in Sign Up", content: state.errorMessage);
+              title: "Error in Update", content: state.errorMessage);
         }
         if (state is ProfileSuccessful) {
           customSucessDialog(context,

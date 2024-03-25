@@ -10,6 +10,8 @@ class CustomTextFormField extends StatefulWidget {
     this.textInputType = TextInputType.text,
     this.validator,
     this.isEnabled = true,
+    this.autoFocus = false,
+    this.onChanged
   });
 
   final TextEditingController textEditingController;
@@ -19,7 +21,8 @@ class CustomTextFormField extends StatefulWidget {
   final TextInputType textInputType;
   final String? Function(String?)? validator;
   final bool isEnabled;
-
+  final bool autoFocus;
+  final void Function(String)? onChanged;
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
 }
@@ -30,12 +33,14 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autofocus: widget.autoFocus,
       enabled: widget.isEnabled,
       validator: widget.validator,
       controller: widget.textEditingController,
       obscureText: isObscureText,
       style: const TextStyle(color: Colors.black),
       keyboardType: widget.textInputType,
+      onChanged: widget.onChanged,
       decoration: InputDecoration(
 
           prefixIcon: Icon(widget.iconData),
