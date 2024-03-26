@@ -70,7 +70,7 @@ class ProfileCubit extends Cubit<ProfileState> {
           "town": userModel.city
         },
       );
-      print(response.data);
+
       emit(ProfileSuccessful());
     } catch (e) {
       if (e is DioException) {

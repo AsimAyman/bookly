@@ -1,5 +1,6 @@
 import 'package:book_extchange/core/widgets/custom_text_form_field.dart';
 import 'package:book_extchange/features/home/view/view_models/search_by_title_cubit/search_by_title_cubit.dart';
+import 'package:book_extchange/features/home/view/views/widgets/custom_books_list_view_home.dart';
 import 'package:book_extchange/features/home/view/views/widgets/custom_no_books_match_this_title.dart';
 import 'package:book_extchange/features/home/view/views/widgets/custom_start_search_container.dart';
 import 'package:flutter/cupertino.dart';
@@ -23,7 +24,8 @@ class SearchByTitleBody extends StatelessWidget {
               CustomTextFormField(
                   autoFocus: true,
                   onChanged: (txt) {
-                    BlocProvider.of<SearchByTitleCubit>(context).search(txt);
+                    BlocProvider.of<SearchByTitleCubit>(context)
+                        .search(txt, context);
                   },
                   textEditingController:
                       BlocProvider.of<SearchByTitleCubit>(context)
@@ -39,7 +41,10 @@ class SearchByTitleBody extends StatelessWidget {
                           .bookModels
                           .isEmpty
                       ? const CustomNoBooksMatchThisTitle()
-                      : SizedBox()
+                      : CustomBooksListViewHome(
+                          allBooks: BlocProvider.of<SearchByTitleCubit>(context)
+                              .bookModels,
+                        )
             ],
           ),
         );
@@ -47,7 +52,3 @@ class SearchByTitleBody extends StatelessWidget {
     );
   }
 }
-
-
-
-

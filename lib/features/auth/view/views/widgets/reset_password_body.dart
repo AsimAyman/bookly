@@ -98,7 +98,7 @@ class _ResetPasswordBodyState extends State<ResetPasswordBody> {
                               BlocProvider.of<ResetPasswordCubit>(context)
                                   .resetPassword();
                             } else {
-                              print("no");
+
                             }
                           },
                         ),

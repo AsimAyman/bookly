@@ -1,59 +1,71 @@
 class BookModel {
-  final String id;
-  final String sellerId;
-  final String sellerPhone;
+  final int id;
   final String title;
   final String description;
   final String govern;
-  final double price;
-  final bool isNegotiable;
-  final bool isExchangeable;
-  final String addedDateTime;
-  final List<String> imgsPath;
+  final String city;
+  final String price;
+  final int isNegotiable;
+  final int isExchangeable;
+  final int status;
+  final String ownerName;
+  final String ownerPhone;
+  final String category;
+  final String? subCategory;
+  final String? subject;
+  final List imgsPath;
 
   BookModel({
     required this.id,
-    required this.sellerId,
-    required this.sellerPhone,
     required this.title,
     required this.description,
     required this.govern,
+    required this.city,
     required this.price,
     required this.isNegotiable,
     required this.isExchangeable,
-    required this.addedDateTime,
+    required this.status,
+    required this.ownerName,
+    required this.ownerPhone,
+    required this.category,
+    required this.subCategory,
+    required this.subject,
     required this.imgsPath,
   });
 
   factory BookModel.fromJson(json) {
     return BookModel(
       id: json['id'],
-      sellerId: json['sellerId'],
-      sellerPhone: json['sellerPhone'],
       title: json['title'],
       description: json['description'],
-      govern: json['govern'],
+      govern: json['city'],
+      city: json['town'],
       price: json['price'],
-      isNegotiable: json['isNegotiable'],
-      isExchangeable: json['isExchangeable'],
-      addedDateTime: json['addedDateTime'],
-      imgsPath: json['imgsPath'],
+      isNegotiable: json['negationable'],
+      isExchangeable: json['exchangable'],
+      status: json['state'],
+      ownerName: json['owner']['name'],
+      ownerPhone: json['owner']['phone'],
+      category:json['category'] ,
+      subCategory: json['sub_category'],
+      subject: json['subject'],
+      imgsPath: json['image'],
     );
   }
 
-  toJson() {
-    return {
-      "id": id,
-      "sellerId": sellerId,
-      "sellerPhone": sellerPhone,
-      "title": title,
-      "description": description,
-      "govern": govern,
-      "price": price,
-      "isNegotiable": isNegotiable,
-      "isExchangeable": isExchangeable,
-      "addedDateTime": addedDateTime,
-      "imgsPath": imgsPath,
-    };
-  }
+  // toJson() {
+  //   return {
+  //     "id": id,
+  //     "sellerId": sellerId,
+  //     "sellerPhone": sellerPhone,
+  //     "title": title,
+  //     "description": description,
+  //     "govern": govern,
+  //     "price": price,
+  //     "isNegotiable": isNegotiable,
+  //     "isExchangeable": isExchangeable,
+  //     "addedDateTime": addedDateTime,
+  //     "imgsPath": imgsPath,
+  //   };
+  // }
 }

@@ -154,7 +154,7 @@ class _SignUpBodyState extends State<SignUpBody> {
                               if (formKey.currentState!.validate()) {
                                 BlocProvider.of<SignUpCubit>(context).signUp();
                               } else {
-                                print("no");
+
                               }
                             }),
                         const HaveAccount(),

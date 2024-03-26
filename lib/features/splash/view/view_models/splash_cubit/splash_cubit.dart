@@ -18,15 +18,8 @@ class SplashCubit extends Cubit<SplashState> {
       () async {
         var loginCubit = BlocProvider.of<LoginCubit>(context);
         await loginCubit.checkIfSignedIn();
-        print("loginCubit.isSignedIn is ${loginCubit.isSignedIn}");
         if (loginCubit.isSignedIn) {
-          print(loginCubit.isSignedIn);
-          print(loginCubit.userModel.id);
-          print(loginCubit.userModel.name);
-          print(loginCubit.userModel.email);
-          print(loginCubit.userModel.mobileNumber);
           GoRouter.of(context).pushReplacementNamed(Routes.kHomeView);
-
         } else {
           GoRouter.of(context).pushReplacementNamed(Routes.kOnBoardingView);
         }

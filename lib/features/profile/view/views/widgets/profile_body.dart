@@ -139,7 +139,6 @@ class _ProfileBodyState extends State<ProfileBody> {
                                 BlocProvider.of<ProfileCubit>(context)
                                     .updateProfile(context);
                               } else {
-                                print("no");
                               }
                             }),
                         const SizedBox(

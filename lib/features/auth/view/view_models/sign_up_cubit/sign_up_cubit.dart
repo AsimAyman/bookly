@@ -49,7 +49,7 @@ class SignUpCubit extends Cubit<SignUpState> {
           "town": cityController.text
         },
       );
-      print(response.data);
+
       emit(SignUpSuccessful());
     } catch (e) {
       if (e is DioException) {

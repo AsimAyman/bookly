@@ -1,18 +1,24 @@
-
 import 'package:book_extchange/core/routing/routes.dart';
 import 'package:book_extchange/core/utils/measures.dart';
 import 'package:book_extchange/core/utils/theme.dart';
+import 'package:book_extchange/features/home/view/views/widgets/custom_book_container_network_image.dart';
+import 'package:book_extchange/features/home/data/models/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class CustomBookContainer extends StatelessWidget {
-  const CustomBookContainer({super.key});
+  const CustomBookContainer({super.key, required this.bookModel});
+
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
+
+    String img = bookModel.imgsPath[0];
+    String firstImage = img.substring(img.indexOf("/storage"));
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).pushNamed(Routes.kBookDetailsView);
+        GoRouter.of(context).pushNamed(Routes.kBookDetailsView,extra: bookModel);
       },
       child: Container(
         height: 180,
@@ -33,12 +39,7 @@ class CustomBookContainer extends StatelessWidget {
                 topLeft: Radius.circular(16),
                 bottomLeft: Radius.circular(16),
               ),
-              child: Image.asset(
-                "assets/images/book_cover_1.jpg",
-                height: 180,
-                width: 150,
-                fit: BoxFit.fill,
-              ),
+              child: CustomBookContainerNetworkImage(image: firstImage),
             ),
             const SizedBox(
               width: 16,
@@ -50,11 +51,15 @@ class CustomBookContainer extends StatelessWidget {
                   height: 16,
                 ),
                 Text(
-                  "EGP 180",
-                  style: Theme.of(context)
+                  bookModel.price,
+                  style: Theme
+                      .of(context)
                       .textTheme
                       .titleLarge!
-                      .copyWith(color: Theme.of(context).colorScheme.primary),
+                      .copyWith(color: Theme
+                      .of(context)
+                      .colorScheme
+                      .primary),
                 ),
                 const SizedBox(
                   height: 8,
@@ -62,15 +67,21 @@ class CustomBookContainer extends StatelessWidget {
                 SizedBox(
                   width: deviceWidth - 220,
                   child: Text(
-                    "Spring Book From png Tree with good price Spring Book From png Tree with good price",
+                    bookModel.title,
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
                     softWrap: true,
-                    style: Theme.of(context).textTheme.titleMedium,
+                    style: Theme
+                        .of(context)
+                        .textTheme
+                        .titleMedium,
                   ),
                 ),
                 const Spacer(),
-                Text("Cairo", style: Theme.of(context).textTheme.bodyMedium),
+                Text(bookModel.govern, style: Theme
+                    .of(context)
+                    .textTheme
+                    .bodyMedium),
                 const SizedBox(
                   height: 16,
                 ),
@@ -82,3 +93,4 @@ class CustomBookContainer extends StatelessWidget {
     );
   }
 }
+

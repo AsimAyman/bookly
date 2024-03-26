@@ -60,8 +60,7 @@ class LoginCubit extends Cubit<LoginState> {
   Future<void> checkIfSignedIn()async{
     _prefs = await SharedPreferences.getInstance();
     String? accessToken =  _prefs.getString("userToken");
-    print("start checkIfSignedIn");
-    print(accessToken);
+
     if(accessToken == null){
       isSignedIn = false;
       return;
@@ -87,7 +86,6 @@ class LoginCubit extends Cubit<LoginState> {
       userModel = UserModel.fromJson(jsonData);
       isSignedIn = true;
     }catch(e){
-      print("error in _getUserCredByToken $e");
       isSignedIn = false;
       return;
     }

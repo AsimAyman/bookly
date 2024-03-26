@@ -6,16 +6,24 @@ import 'package:book_extchange/features/book_details/view/views/widgets/custom_c
 import 'package:book_extchange/features/book_details/view/views/widgets/custom_description_text.dart';
 import 'package:book_extchange/features/book_details/view/views/widgets/custom_fav_button.dart';
 import 'package:book_extchange/features/book_details/view/views/widgets/custom_price_and_city.dart';
+import 'package:book_extchange/features/home/data/models/book_model.dart';
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 class BookDetailsBody extends StatelessWidget {
-  const BookDetailsBody({super.key});
+  const BookDetailsBody({super.key,required this.bookModel});
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
+    List<String> imgs= [];
+    bookModel.imgsPath.forEach((element) {
+      imgs.add(element.substring(element.indexOf("/storage")));
+    });
     return SizedBox(
       width: deviceWidth,
       height: deviceHeight,
@@ -24,18 +32,13 @@ class BookDetailsBody extends StatelessWidget {
           SingleChildScrollView(
             child: Column(
               children: [
-                const Stack(
+                Stack(
                   children: [
                     CustomCarouselImages(
-                      imgs: [
-                        "assets/images/book_cover_1.jpg",
-                        "assets/images/book_cover_1.jpg",
-                        "assets/images/book_cover_1.jpg",
-                        "assets/images/book_cover_1.jpg"
-                      ],
+                      imgs: imgs,
                     ),
-                    CustomBackButton(),
-                    FavButton(),
+                    const CustomBackButton(),
+                    const  FavButton(),
                   ],
                 ),
                 const SizedBox(
@@ -46,19 +49,20 @@ class BookDetailsBody extends StatelessWidget {
                     horizontal: 16,
                   ),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Spring Book From png Tree with good You can buy it now",
+                        bookModel.title,
                         style: Theme.of(context).textTheme.headlineSmall,
                       ),
                       const Divider(
                         height: 32,
                       ),
-                      const CustomPriceAndCity(),
+                      CustomPriceAndCity(bookModel: bookModel,),
                       const Divider(
                         height: 32,
                       ),
-                      const CustomDescriptionText(),
+                      CustomDescriptionText(txt: bookModel.description,),
                     ],
                   ),
                 ),
@@ -78,7 +82,17 @@ class BookDetailsBody extends StatelessWidget {
                   child: CustomButtonIconText(
                     txt: "Phone",
                     iconData: Icons.phone,
-                    onTap: () {},
+                    onTap: ()async {
+                      final Uri uri = Uri(
+                          scheme: "tel",
+                          path: "${bookModel.ownerPhone}"
+                      );
+                      if(await canLaunchUrl(uri)){
+                        await launchUrl(uri);
+                      }else{
+                        Clipboard.setData(ClipboardData(text: bookModel.ownerPhone));
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Copied Phone Number Successfully")));                        }
+                    },
                   ),
                 ),
                 const SizedBox(
