@@ -11,4 +11,5 @@ class GovernModel {
         id: json['id'],
     );
   }
+
 }

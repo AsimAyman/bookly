@@ -48,7 +48,7 @@ class _LoginBodyState extends State<LoginBody> {
                     CustomTextFormField(
                       textEditingController: emailController,
                       hintTxt: "Email",
-                      iconData: Icons.email,
+                      iconData:Icons.email,
 
                       validator: ValidatorHandler.emailValidator,
                     ),
@@ -58,7 +58,7 @@ class _LoginBodyState extends State<LoginBody> {
                     CustomTextFormField(
                       textEditingController: passwordController,
                       hintTxt: "Password",
-                      iconData: Icons.lock,
+                      iconData:Icons.lock,
                       isPassword: true,
                       validator: ValidatorHandler.passwordValidator,
                     ),

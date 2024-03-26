@@ -27,10 +27,12 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => SplashCubit()),
       ],
   child: MaterialApp.router(
+
       debugShowCheckedModeBanner: false,
       routerConfig: Routes.router,
       title: 'Flutter Demo',
       theme: theme,
+
     ),
 );
   }
