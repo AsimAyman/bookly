@@ -52,4 +52,63 @@ class ValidatorHandler {
       return null;
     }
   };
+  static String? Function(String?)? titleValidator = (String? txt) {
+    if (txt == null || txt.isEmpty) {
+      return "This Field is Required";
+    } else if (txt.trim().isEmpty) {
+      return "Can't Enter Spaces between text in this field";
+    } else if (txt.length < 4) {
+      return "Title must be at least 4 characters long";
+    } else if (txt.length > 100) {
+      return "Title must not exceed 100 characters";}
+    else {
+  return null;
+  }
+};
+  static String? Function(String?)? descriptionValidator = (String? description) {
+    if (description == null || description.isEmpty) {
+      return "Description is required";
+    } else if (description.length < 20) {
+      return "Description must be at least 20 characters long";
+    } else if (description.length > 500) {
+      return "Description must not exceed 500 characters";
+    } else {
+      return null;
+    }
+  };
+
+  static String? Function(String?)? priceValidator = (String? price) {
+    if (price == null || price.isEmpty) {
+      return "Price is required";
+    }
+
+    // Remove leading and trailing whitespace
+    price = price.trim();
+
+    // Check if the price can be parsed as a double
+    if (double.tryParse(price) == null) {
+      return "Invalid price format";
+    }
+
+    // Check if the price is greater than or equal to zero
+    double parsedPrice = double.parse(price);
+    if (parsedPrice < 0) {
+      return "Price cannot be negative";
+    }
+
+    // Additional checks specific to your application can be added here
+
+    return null;
+  };
+  static String? Function(String?)? cityValidator = (String? txt){
+    if(txt!.isEmpty){
+      return "This Field is Required";
+    }else if(txt.length > 16){
+      return "City Should be Less than 16 char";
+    }else{
+      return null;
+    }
+  };
+
+
 }

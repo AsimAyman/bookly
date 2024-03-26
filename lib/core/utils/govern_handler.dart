@@ -1,6 +1,6 @@
 import 'package:book_extchange/features/auth/data/models/govern_model.dart';
 
-abstract class GovernHandler {
+class GovernHandler {
   static const List<GovernModel> allGoverns =[
     GovernModel(name: "القاهرة", id: '1'),
     GovernModel(name: "الجيزة", id: '2'),

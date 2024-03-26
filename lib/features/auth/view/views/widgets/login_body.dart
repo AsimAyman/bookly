@@ -65,7 +65,7 @@ class _LoginBodyState extends State<LoginBody> {
                     CustomTextFormField(
                       textEditingController: BlocProvider.of<LoginCubit>(context).emailController,
                       hintTxt: "Email",
-                      iconData: Icons.email,
+                      iconData:Icons.email,
 
                       validator: ValidatorHandler.emailValidator,
                     ),
@@ -75,7 +75,7 @@ class _LoginBodyState extends State<LoginBody> {
                     CustomTextFormField(
                       textEditingController: BlocProvider.of<LoginCubit>(context).passwordController,
                       hintTxt: "Password",
-                      iconData: Icons.lock,
+                      iconData:Icons.lock,
                       isPassword: true,
                       validator: ValidatorHandler.passwordValidator,
                     ),

@@ -30,6 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  easy_stepper: 0.8.3
 
 
   # The following adds the Cupertino Icons font to your application.

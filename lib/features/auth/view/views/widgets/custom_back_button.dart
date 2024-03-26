@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class CustomBackButton extends StatelessWidget {
-  const CustomBackButton({
+   CustomBackButton({
+    this.onPress,
     super.key,
   });
-
+    void Function()? onPress;
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -13,6 +14,10 @@ class CustomBackButton extends StatelessWidget {
       child: IconButton(
 
         onPressed: () {
+          if(onPress != null){
+            onPress!();
+            return;
+          }
           GoRouter.of(context).pop();
         },
         icon: Icon(
