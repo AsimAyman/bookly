@@ -1,4 +1,6 @@
 import 'package:book_extchange/core/routing/navigation_animation.dart';
+import 'package:book_extchange/features/advertise/view/views/advertise_view.dart';
+import 'package:book_extchange/features/advertise/view/views/success_advertise_view.dart';
 import 'package:book_extchange/features/auth/view/views/login_view.dart';
 import 'package:book_extchange/features/auth/view/views/reset_password_view.dart';
 import 'package:book_extchange/features/auth/view/views/sign_up_view.dart';
@@ -23,7 +25,8 @@ abstract class Routes {
   static const kBookDetailsView = 'BookDetailsView';
   static const kSearchByTitleView = 'SearchByTitleView';
   static const kProfileView = 'ProfileView';
-
+  static const kAdvertiseView = 'AdvertiseView';
+  static const kSuccessAdvertiseView = 'SuccessAdvertiseView';
 
   static final router = GoRouter(routes: [
     GoRoute(
@@ -126,8 +129,29 @@ abstract class Routes {
             type: 'slide', // fade|rotation|scale|size|slide
           ),
     ),
-
-
+    GoRoute(
+      name: kAdvertiseView,
+      path: '/AdvertiseView',
+      // path: '/AdvertiseView',
+      pageBuilder: (context, state) =>
+          RouterTransitionFactory.getTransitionPage(
+            context: context,
+            state: state,
+            child: AdvertiseView(),
+            type: 'slide', // fade|rotation|scale|size|slide
+          ),
+    ),
+    GoRoute(
+      name: kSuccessAdvertiseView,
+      path: '/SuccessAdvertiseView',
+      pageBuilder: (context, state) =>
+          RouterTransitionFactory.getTransitionPage(
+            context: context,
+            state: state,
+            child: const SuccessAdvertise(),
+            type: 'scale', // fade|rotation|scale|size|slide
+          ),
+    ),
     // temp
     // GoRoute(
     //   name: kHomeView,

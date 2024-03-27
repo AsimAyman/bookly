@@ -54,13 +54,14 @@ class CustomHomeDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(
-              Icons.train,
+              Icons.add,
             ),
-            title: const Text('Page 2'),
+            title: const Text('Advertise you book'),
             onTap: () {
-              // Navigator.pop(context);
+              GoRouter.of(context).pushNamed(Routes.kAdvertiseView);
             },
           ),
+
           Spacer(),
           ListTile(
             leading: Transform.rotate(

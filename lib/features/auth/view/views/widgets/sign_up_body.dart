@@ -59,7 +59,7 @@ class _SignUpBodyState extends State<SignUpBody> {
                         SizedBox(
                           height: deviceHeight * .04,
                         ),
-                        const CustomBackButton(),
+                         CustomBackButton(),
                         SizedBox(
                           height: deviceHeight * .04,
                         ),

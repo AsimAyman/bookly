@@ -100,15 +100,7 @@ class ValidatorHandler {
 
     return null;
   };
-  static String? Function(String?)? cityValidator = (String? txt){
-    if(txt!.isEmpty){
-      return "This Field is Required";
-    }else if(txt.length > 16){
-      return "City Should be Less than 16 char";
-    }else{
-      return null;
-    }
-  };
+
 
 
 }

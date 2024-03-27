@@ -52,7 +52,7 @@ class _ResetPasswordBodyState extends State<ResetPasswordBody> {
                         SizedBox(
                           height: deviceHeight * .04,
                         ),
-                        const CustomBackButton(),
+                         CustomBackButton(),
                         SizedBox(
                           height: deviceHeight * .04,
                         ),

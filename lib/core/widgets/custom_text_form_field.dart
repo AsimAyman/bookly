@@ -11,7 +11,9 @@ class CustomTextFormField extends StatefulWidget {
     this.validator,
     this.isEnabled = true,
     this.autoFocus = false,
-    this.onChanged
+    this.onChanged,
+    this.suffixText,
+
   });
 
   final TextEditingController textEditingController;
@@ -23,6 +25,7 @@ class CustomTextFormField extends StatefulWidget {
   final bool isEnabled;
   final bool autoFocus;
   final void Function(String)? onChanged;
+  final String? suffixText;
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
 }
@@ -46,6 +49,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           prefixIcon: Icon(widget.iconData),
           prefixIconColor: getColorWhenFocus(),
           suffixIconColor: getColorWhenFocus(),
+          suffixText: widget.suffixText,
           suffixIcon: widget.isPassword
               ? GestureDetector(
             onTap: () {
@@ -76,6 +80,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               16,
             ),
           )),
+
     );
   }
 
