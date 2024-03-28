@@ -11,3 +11,6 @@ class SelectGovernorate extends AdvertiseState{}
 class SelectBookType extends AdvertiseState{}
 class SelectedCategory extends AdvertiseState{}
 class SelectedGrade extends AdvertiseState{}
+class AddImage extends AdvertiseState{}
+class DeleteImage extends AdvertiseState{}
+class EditImage extends AdvertiseState{}
