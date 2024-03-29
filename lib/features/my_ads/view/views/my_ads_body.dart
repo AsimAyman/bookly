@@ -27,39 +27,42 @@ class MyAdsBody extends StatelessWidget {
         },
         builder: (context, state) {
           return SafeArea(
-            child: Column(
-              children: [
-                const CustomSimpleAppBar(
-                  txt: "My Ads",
-                ),
-                SizedBox(
-                  height: 36,
-                ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                children: [
+                  const CustomSimpleAppBar(
+                    txt: "My Ads",
+                  ),
+                  SizedBox(
+                    height: 36,
+                  ),
 
-                //loading
-                state is FetchMyAdsLoading
-                    ? Expanded(child: const CustomCenterLoadingWidget())
-                    : const SizedBox(),
+                  //loading
+                  state is FetchMyAdsLoading
+                      ? Expanded(child: const CustomCenterLoadingWidget())
+                      : const SizedBox(),
 
-                //successful
-                state is FetchMyAdsSuccessful
-                    ? state.allBooks.isEmpty
-                        ? Column(
-                            children: [
-                              SizedBox(
-                                height: deviceHeight * 0.15,
-                              ),
-                              const CustomNoAdsWidget(
-                                txt:
-                                    "You did not add any add yet try add one and back again",
-                              )
-                            ],
-                          )
-                        : CustomBooksListViewHome(
-                            allBooks: state.allBooks,
-                          )
-                    : const SizedBox(),
-              ],
+                  //successful
+                  state is FetchMyAdsSuccessful
+                      ? state.allBooks.isEmpty
+                          ? Column(
+                              children: [
+                                SizedBox(
+                                  height: deviceHeight * 0.15,
+                                ),
+                                const CustomNoAdsWidget(
+                                  txt:
+                                      "You did not add any add yet try add one and back again",
+                                )
+                              ],
+                            )
+                          : CustomBooksListViewHome(
+                              allBooks: state.allBooks,
+                            )
+                      : const SizedBox(),
+                ],
+              ),
             ),
           );
         },

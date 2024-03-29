@@ -36,7 +36,8 @@ class _CategoriesState extends State<Categories> {
                     value: AdvertiseCubit
                         .get(context)
                         .selectedBookType,),
-                  SizedBox(height: deviceHeight * .03),
+                  const SizedBox(height: 16,),
+
                   // CustomDropDownMenu<String>(items: CategoryHandler.allCategories,
                   //     label: 'Categories',
                   //     onSelect: (v) => {},
@@ -51,6 +52,8 @@ class _CategoriesState extends State<Categories> {
                   //         .selectedBookType),
 
                   getSubDropDown(),
+                  const SizedBox(height: 24,),
+
                   CustomMainButton(
                     txt: 'Next',
                     onTap: () {

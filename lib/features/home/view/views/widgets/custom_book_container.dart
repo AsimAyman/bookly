@@ -13,9 +13,6 @@ class CustomBookContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    String img = bookModel.imgsPath[0];
-    String firstImage = img.substring(img.indexOf("/storage"));
     return GestureDetector(
       onTap: () {
         GoRouter.of(context).pushNamed(Routes.kBookDetailsView,extra: bookModel);
@@ -39,7 +36,7 @@ class CustomBookContainer extends StatelessWidget {
                 topLeft: Radius.circular(16),
                 bottomLeft: Radius.circular(16),
               ),
-              child: CustomBookContainerNetworkImage(image: firstImage),
+              child: CustomBookContainerNetworkImage(image: bookModel.imgsPath[0]),
             ),
             const SizedBox(
               width: 16,

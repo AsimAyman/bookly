@@ -63,6 +63,7 @@ dependencies:
   shared_preferences: ^2.2.2
   url_launcher: ^6.2.5
   image_picker: ^1.0.7
+  shimmer: ^3.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

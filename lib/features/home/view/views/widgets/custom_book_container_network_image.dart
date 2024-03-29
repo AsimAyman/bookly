@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 
 class CustomBookContainerNetworkImage extends StatelessWidget {
   const CustomBookContainerNetworkImage({
@@ -11,7 +12,7 @@ class CustomBookContainerNetworkImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.network(
-      "http://10.0.2.2:8000${image}",
+      image,
       height: 180,
       width: 150,
       fit: BoxFit.fill,
@@ -19,13 +20,22 @@ class CustomBookContainerNetworkImage extends StatelessWidget {
         if (loadingProgress == null) {
           return child;
         }
-        return Center(
-          child: CircularProgressIndicator(
-            value: loadingProgress.expectedTotalBytes != null
-                ? loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes!
-                : null,
+        return Shimmer.fromColors(
+          baseColor: Colors.grey[300]!,
+          highlightColor: Colors.grey[100]!,
+          child: Container(
+            height: 180,
+            width: 150,
+            color: Colors.blue, // This color will be displayed after loading
           ),
         );
+        // return Center(
+        //   child: CircularProgressIndicator(
+        //     value: loadingProgress.expectedTotalBytes != null
+        //         ? loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes!
+        //         : null,
+        //   ),
+        // );
       },
       frameBuilder: (BuildContext context, Widget child, int? frame, bool wasSynchronouslyLoaded) {
         if (wasSynchronouslyLoaded) {

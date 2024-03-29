@@ -31,8 +31,8 @@ abstract class Routes {
   static final router = GoRouter(routes: [
     GoRoute(
       name: kSplashView,
-     // path: '/',
-      path: '/a',
+     path: '/',
+      // path: '/a',
       builder: (context, state) => const SplashView(),
     ),
     GoRoute(
@@ -132,8 +132,8 @@ abstract class Routes {
     ),
     GoRoute(
       name: kAdvertiseView,
-      //path: '/AdvertiseView',
-      path: '/',
+      path: '/AdvertiseView',
+      // path: '/',
       pageBuilder: (context, state) =>
           RouterTransitionFactory.getTransitionPage(
             context: context,

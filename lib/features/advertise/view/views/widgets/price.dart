@@ -34,19 +34,22 @@ class Price extends StatelessWidget {
                 validator:ValidatorHandler.priceValidator,
                 iconData: Icons.price_change_outlined,
               ),
-              SizedBox(height: deviceHeight * .03),
+              const SizedBox(height: 16,),
               CustomDropDownMenu<String>(
                 items: BookConditionHandler.allBookConditions,
                 label: 'Book Conditions',
                 onSelect: AdvertiseCubit.get(context).onSelectCondition,
                 value: AdvertiseCubit.get(context).selectedCondition,
               ),
-              SizedBox(height: deviceHeight * .03),
+              const SizedBox(height: 16,),
               CheckboxListTile(
                   title: const Text('Negotiable'), value: AdvertiseCubit.get(context).isNegotiable, onChanged: (value) => AdvertiseCubit.get(context).toggleNegotiable(value),),
-              SizedBox(height: deviceHeight * .03),
+              const SizedBox(height: 16,),
+
               CheckboxListTile(
                   title: const Text('Exchangeable'), value: AdvertiseCubit.get(context).isExchangeable, onChanged: (value) => AdvertiseCubit.get(context).toggleExchangeable(value),),
+              const SizedBox(height: 24,),
+
               CustomMainButton(
                 txt: 'Next',
                 onTap: () {

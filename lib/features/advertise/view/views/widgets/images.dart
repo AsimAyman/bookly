@@ -21,6 +21,8 @@ class Images extends StatelessWidget {
                 ),
               ),
           const ImageAdder(),
+          const SizedBox(height: 24,),
+
           CustomMainButton(
             txt: 'Next',
             onTap: () {

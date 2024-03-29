@@ -8,7 +8,7 @@ class CustomCarouselImages extends StatefulWidget {
     required this.imgs,
   });
 
-  final List<String> imgs;
+  final List<dynamic> imgs;
 
   @override
   State<CustomCarouselImages> createState() => _CustomCarouselImagesState();

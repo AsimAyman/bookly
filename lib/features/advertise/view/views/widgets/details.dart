@@ -23,13 +23,12 @@ class Details extends StatelessWidget {
             iconData: Icons.title_outlined,
             validator: ValidatorHandler.titleValidator,
           ),
-          SizedBox(
-            height: deviceHeight * .03,
-          ),
+          const SizedBox(height: 16,),
           DescriptionTextField(
               validator: ValidatorHandler.descriptionValidator,
               textEditingController:
                   AdvertiseCubit.get(context).descriptionController),
+          const SizedBox(height: 24,),
           CustomMainButton(
             txt: 'Next',
             onTap: () {

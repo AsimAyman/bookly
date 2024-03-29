@@ -31,7 +31,7 @@ class Location extends StatelessWidget {
               items: GovernHandler.allGoverns,
               onSelect: AdvertiseCubit.get(context).onSelectGovernorate,
             ),
-            SizedBox(height: deviceHeight * .03),
+            const SizedBox(height: 16,),
             CustomTextFormField(
               textInputType: TextInputType.text,
               validator: ValidatorHandler.cityValidator,
@@ -39,6 +39,8 @@ class Location extends StatelessWidget {
                     AdvertiseCubit.get(context).cityController,
                 hintTxt: 'City',
                 iconData: Icons.location_city),
+            const SizedBox(height: 24,),
+
             CustomMainButton(
               txt: 'Next',
               onTap: () {

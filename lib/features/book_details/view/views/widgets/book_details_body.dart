@@ -20,10 +20,7 @@ class BookDetailsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> imgs= [];
-    bookModel.imgsPath.forEach((element) {
-      imgs.add(element.substring(element.indexOf("/storage")));
-    });
+
     return SizedBox(
       width: deviceWidth,
       height: deviceHeight,
@@ -35,7 +32,7 @@ class BookDetailsBody extends StatelessWidget {
                 Stack(
                   children: [
                     CustomCarouselImages(
-                      imgs: imgs,
+                      imgs: bookModel.imgsPath ,
                     ),
                     const CustomBackButton(),
                     const  FavButton(),
