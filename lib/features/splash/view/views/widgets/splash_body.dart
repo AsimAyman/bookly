@@ -23,7 +23,7 @@ class _SplashBodyState extends State<SplashBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return  Center(
       child: Image.asset(
         'assets/images/Bookly_blue.png',
         width: deviceWidth,

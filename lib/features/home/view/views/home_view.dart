@@ -1,5 +1,11 @@
 import 'package:book_extchange/core/routing/locator_service.dart';
+import 'package:book_extchange/core/utils/catigories_handler.dart';
 import 'package:book_extchange/features/auth/view/view_models/login_cubit/login_cubit.dart';
+import 'package:book_extchange/features/fav_ads/data/repos/fav_ads_repo.dart';
+import 'package:book_extchange/features/fav_ads/view/view_models/fav_ads_cubit.dart';
+import 'package:book_extchange/features/filter/data/repos/category_repo/category_repo.dart';
+import 'package:book_extchange/features/filter/data/repos/filter_repo/filter_repo.dart';
+import 'package:book_extchange/features/filter/view/view_models/filter_cubit.dart';
 import 'package:book_extchange/features/home/data/repos/books_repo/book_repo.dart';
 import 'package:book_extchange/features/home/view/view_models/bottom_nav_cubit/bottom_nav_cubit.dart';
 import 'package:book_extchange/features/home/view/view_models/home_cubit/home_cubit.dart';
@@ -9,8 +15,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    CategoryHandler(getIt.get<CategoryRepo>() , BlocProvider.of<LoginCubit>(context).userModel.accessToken);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +42,7 @@ class HomeView extends StatelessWidget {
           create: (context) =>
               HomeCubit(getIt.get<BookRepo>())..fetchBooks(context),
         ),
+
       ],
       child: BlocBuilder<BottomNavCubit, BottomNavState>(
         builder: (context, state) {

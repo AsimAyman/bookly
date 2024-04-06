@@ -1,24 +1,86 @@
+import 'package:book_extchange/core/errors/failures.dart';
+import 'package:book_extchange/core/routing/locator_service.dart';
+import 'package:book_extchange/core/widgets/custom_center_loading_widget.dart';
+import 'package:book_extchange/core/widgets/custom_error_dialog.dart';
 import 'package:book_extchange/core/widgets/custom_no_ads_widget.dart';
 import 'package:book_extchange/core/widgets/custom_simple_app_bar.dart';
+import 'package:book_extchange/features/auth/view/view_models/login_cubit/login_cubit.dart';
+import 'package:book_extchange/features/fav_ads/data/repos/fav_ads_repo.dart';
+import 'package:book_extchange/features/fav_ads/view/view_models/fav_ads_cubit.dart';
+import 'package:book_extchange/features/home/view/views/widgets/custom_books_list_view_home.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class FavAdsBody extends StatelessWidget {
+class FavAdsBody extends StatefulWidget {
   const FavAdsBody({super.key});
 
   @override
+  State<FavAdsBody> createState() => _FavAdsBodyState();
+}
+
+class _FavAdsBodyState extends State<FavAdsBody> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    BlocProvider.of<FavAdsCubit>(context).fetchFavAds(
+        BlocProvider.of<LoginCubit>(context).userModel.accessToken);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return  SafeArea(
-      child: Center(
-        child: Column(
-          children: [
-            CustomSimpleAppBar(txt: "Favoruites",),
-            CustomNoAdsWidget(
-              txt: "You did not save any add yet try save one and back again",
+    return BlocConsumer<FavAdsCubit, FavAdsState>(
+      listener: (context, state) {
+        BlocProvider.of<FavAdsCubit>(context).removeFavBook("5");
+
+        if (state is FetchFavAdsFailure) {
+          customErrorDialog(context,
+              title: "Error", content: state.errorMessage);
+        }
+      },
+      builder: (context, state) {
+        return SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Center(
+              child: Column(
+                children: [
+                  CustomSimpleAppBar(
+                    txt: "Favoruites",
+                  ),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  state is FetchFavAdsLoading
+                      ? CustomCenterLoadingWidget()
+                      : state is FetchFavAdsSuccessfully
+                          ? BlocProvider.of<FavAdsCubit>(context)
+                                  .bookModelList
+                                  .isEmpty
+                              ? const CustomNoAdsWidget(
+                                  txt:
+                                      "You did not save any add yet try save one and back again",
+                                )
+                              : CustomBooksListViewHome(
+                                  allBooks:
+                                      BlocProvider.of<FavAdsCubit>(context)
+                                          .bookModelList,
+                                )
+                          : const CustomNoAdsWidget(
+                              txt: "There is An Error Please Try Again Later",
+                            ),
+                ],
+              ),
             ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }
+// const CustomNoAdsWidget(
+// txt:
+// "There is An Error Please Try Again Later",
+// )
 
+//"You did not save any add yet try save one and back again",

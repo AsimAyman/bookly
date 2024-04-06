@@ -24,6 +24,7 @@ class SearchByTitleBody extends StatelessWidget {
               CustomTextFormField(
                   autoFocus: true,
                   onChanged: (txt) {
+
                     BlocProvider.of<SearchByTitleCubit>(context)
                         .search(txt, context);
                   },

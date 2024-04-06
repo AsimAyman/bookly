@@ -5,6 +5,8 @@ import 'package:book_extchange/features/auth/view/views/login_view.dart';
 import 'package:book_extchange/features/auth/view/views/reset_password_view.dart';
 import 'package:book_extchange/features/auth/view/views/sign_up_view.dart';
 import 'package:book_extchange/features/book_details/view/views/book_details_view.dart';
+import 'package:book_extchange/features/filter/view/views/filter_results_view.dart';
+import 'package:book_extchange/features/filter/view/views/filter_view.dart';
 import 'package:book_extchange/features/home/data/models/book_model.dart';
 import 'package:book_extchange/features/home/view/views/home_view.dart';
 import 'package:book_extchange/features/home/view/views/search_by_title_view.dart';
@@ -24,6 +26,9 @@ abstract class Routes {
   static const kHomeView = 'HomeView';
   static const kBookDetailsView = 'BookDetailsView';
   static const kSearchByTitleView = 'SearchByTitleView';
+  static const kFilterView= 'FilterView';
+  static const kFilterResultsView= 'FilterResultsView';
+
   static const kProfileView = 'ProfileView';
   static const kAdvertiseView = 'AdvertiseView';
   static const kSuccessAdvertiseView = 'SuccessAdvertiseView';
@@ -101,6 +106,31 @@ abstract class Routes {
             child: const SearchByTitleView(),
             type: 'slide', // fade|rotation|scale|size|slide
           ),
+    ),
+    GoRoute(
+      name: kFilterView,
+      path: '/FilterView',
+      pageBuilder: (context, state) =>
+          RouterTransitionFactory.getTransitionPage(
+            context: context,
+            state: state,
+            child: const FilterView(),
+            type: 'slide', // fade|rotation|scale|size|slide
+          ),
+    ),
+    //FilterViewBody
+    GoRoute(
+      name: kFilterResultsView,
+      path: '/FilterResultsView',
+      pageBuilder: (context, state) {
+        final books = state.extra as List<BookModel>;
+        return RouterTransitionFactory.getTransitionPage(
+          context: context,
+          state: state,
+          child:  FilterResultsView(books: books,),
+          type: 'slide', // fade|rotation|scale|size|slide
+        );
+      }
     ),
     GoRoute(
         name: kBookDetailsView,

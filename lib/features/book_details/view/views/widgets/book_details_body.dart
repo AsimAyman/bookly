@@ -35,7 +35,7 @@ class BookDetailsBody extends StatelessWidget {
                       imgs: bookModel.imgsPath ,
                     ),
                     const CustomBackButton(),
-                    const  FavButton(),
+                      FavButton(bookId: bookModel.id.toString(),),
                   ],
                 ),
                 const SizedBox(

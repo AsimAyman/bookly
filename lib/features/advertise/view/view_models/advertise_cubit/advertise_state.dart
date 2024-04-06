@@ -14,3 +14,11 @@ class SelectedGrade extends AdvertiseState{}
 class AddImage extends AdvertiseState{}
 class DeleteImage extends AdvertiseState{}
 class EditImage extends AdvertiseState{}
+
+class AddBookLoadingState extends AdvertiseState{}
+class AddBookSuccessfulState extends AdvertiseState{}
+class AddBookFailureState extends AdvertiseState{
+  final String errorMessage;
+
+  AddBookFailureState({required this.errorMessage});
+}

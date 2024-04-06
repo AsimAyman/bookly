@@ -2,6 +2,7 @@ import 'package:book_extchange/core/utils/measures.dart';
 import 'package:book_extchange/core/widgets/custom_main_button.dart';
 import 'package:book_extchange/features/auth/view/views/widgets/custom_head_text.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SuccessAdvertise extends StatelessWidget {
   const SuccessAdvertise({super.key});
@@ -41,7 +42,9 @@ class SuccessAdvertise extends StatelessWidget {
                 child: Column(
                   children: [
                     const Spacer(),
-                    CustomMainButton(txt: 'Done', onTap: () {}),
+                    CustomMainButton(txt: 'Done', onTap: () {
+                      GoRouter.of(context).pop();
+                    }),
                     const SizedBox(
                       height: 32,
                     ),

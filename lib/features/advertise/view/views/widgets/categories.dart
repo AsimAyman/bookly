@@ -6,6 +6,7 @@ import 'package:book_extchange/core/widgets/custom_drop_down_menu.dart';
 import 'package:book_extchange/core/widgets/custom_main_button.dart';
 import 'package:book_extchange/features/advertise/view/view_models/advertise_cubit/advertise_cubit.dart';
 import 'package:book_extchange/features/advertise/view/view_models/advertise_cubit/advertise_state.dart';
+import 'package:book_extchange/features/filter/data/models/category_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -74,7 +75,7 @@ class _CategoriesState extends State<Categories> {
     if (AdvertiseCubit
         .get(context)
         .selectedBookType == 'General') {
-      return CustomDropDownMenu<String>(items: CategoryHandler.allCategories,
+      return CustomDropDownMenu<CategoryModel>(items: CategoryHandler.generalCategories,
           label: 'Categories',
           onSelect:AdvertiseCubit
               .get(context)
@@ -83,7 +84,7 @@ class _CategoriesState extends State<Categories> {
               .get(context)
               .selectedCategory);
     } else {
-      return CustomDropDownMenu<String>(items: GradeHandler.allGrade,
+      return CustomDropDownMenu<CategoryModel>(items: CategoryHandler.educationalCategories,
           label: 'Grades',
           onSelect:AdvertiseCubit
               .get(context)

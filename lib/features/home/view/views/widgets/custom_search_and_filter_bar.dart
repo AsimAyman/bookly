@@ -1,4 +1,5 @@
 import 'package:book_extchange/core/routing/routes.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -49,17 +50,23 @@ class CustomSearchAndFilterBar extends StatelessWidget {
         const SizedBox(
           width: 16,
         ),
-        Container(
-          height: 60,
-          width: 60,
-          decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.primary,
-              borderRadius: BorderRadius.circular(16)),
-          child: const Center(
-            child: Icon(
-              Icons.filter_list,
-              color: Colors.white,
-              size: 30,
+        GestureDetector(
+          onTap: () {
+            GoRouter.of(context).pushNamed(Routes.kFilterView);
+
+          },
+          child: Container(
+            height: 60,
+            width: 60,
+            decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primary,
+                borderRadius: BorderRadius.circular(16)),
+            child: const Center(
+              child: Icon(
+                Icons.filter_list,
+                color: Colors.white,
+                size: 30,
+              ),
             ),
           ),
         )

@@ -1,28 +1,35 @@
 import 'dart:io';
 
 import 'package:book_extchange/core/routing/routes.dart';
+import 'package:book_extchange/features/advertise/data/repo/add_book_repo.dart';
 import 'package:book_extchange/features/advertise/view/view_models/advertise_cubit/advertise_state.dart';
 import 'package:book_extchange/features/advertise/view/views/widgets/categories.dart';
 import 'package:book_extchange/features/advertise/view/views/widgets/details.dart';
 import 'package:book_extchange/features/advertise/view/views/widgets/images.dart';
 import 'package:book_extchange/features/advertise/view/views/widgets/location.dart';
 import 'package:book_extchange/features/advertise/view/views/widgets/price.dart';
+import 'package:book_extchange/features/filter/data/models/category_model.dart';
+import 'package:book_extchange/features/home/data/models/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 
 class AdvertiseCubit extends Cubit<AdvertiseState> {
-  AdvertiseCubit() : super(AdvertiseInitState());
+  AdvertiseCubit(this._addBookRepo, this.userAccessToken)
+      : super(AdvertiseInitState());
 
   static AdvertiseCubit get(context) => BlocProvider.of(context);
+
+  final AddBookRepo _addBookRepo;
+  final String userAccessToken;
 
   List<Widget> steps = [
     Details(),
     Price(),
     Location(),
-   const Categories(),
-   const Images(),
+    const Categories(),
+    const Images(),
   ];
   int stepIndex = 0;
   List<File> selectedImages = [];
@@ -35,12 +42,11 @@ class AdvertiseCubit extends Cubit<AdvertiseState> {
   var selectedCondition;
   var selectedGovernorate;
   var selectedBookType;
-  var selectedCategory;
+  CategoryModel? selectedCategory;
   var selectedGrade;
 
   bool isNegotiable = false;
   bool isExchangeable = false;
-
 
   void backWordStep(context) {
     if (stepIndex >= 1) {
@@ -103,7 +109,6 @@ class AdvertiseCubit extends Cubit<AdvertiseState> {
   void deleteImage(image) {
     selectedImages.remove(image);
     emit(DeleteImage());
-
   }
 
   void editImage(image) async {
@@ -117,26 +122,41 @@ class AdvertiseCubit extends Cubit<AdvertiseState> {
       emit(EditImage());
     }
   }
-  void nextStep(context) {
+
+  void nextStep(context) async {
     if (stepIndex < steps.length - 1) {
       stepIndex++;
       emit(NextStep());
     } else {
-      print("the title: ${titleController.text}");
-      print("the description: ${descriptionController.text}");
-      print("the price: ${priceController.text}");
-      print("the bookConditions: ${selectedCondition}");
-      print("isNegotiable: ${isNegotiable}");
-      print("isExchangeable: ${isExchangeable}");
-      print("Governorate: ${selectedGovernorate.name}");
-      print("City: ${cityController.text}");
-      print("book type: ${selectedBookType}");
-      print("book category: ${selectedCategory}");
-      print("book grade:${selectedGrade}");
-      for (var image in selectedImages) {
-        print('Image=>>>>>>>>>>>>>>>>> $image');
-      }
-      GoRouter.of(context).pushReplacementNamed(Routes.kSuccessAdvertiseView);
+      emit(AddBookLoadingState());
+      String cat = selectedBookType == "Educational" ? "17" : selectedCategory!.id.toString() ;
+      String subCat = selectedBookType == "Educational" ? selectedCategory!.id.toString() : "";
+      BookModel bookModel = BookModel(
+        id: 0,
+        title: titleController.text,
+        description: descriptionController.text,
+        govern: selectedGovernorate.name,
+        city: cityController.text,
+        price: priceController.text,
+        isNegotiable: isNegotiable ? 1:0,
+        isExchangeable: isExchangeable ? 1:0,
+        status: 1,
+        ownerName: "ownerName",
+        ownerPhone: "ownerPhone",
+        category: cat,
+        subCategory: subCat,
+        subject: "",
+        imgsPath: ["",""],
+      );
+      var results = await _addBookRepo.addNewBook(userAccessToken, bookModel, selectedImages);
+      results.fold((l) {
+        emit(AddBookFailureState(errorMessage: l.errorMessage));
+      }, (r) {
+        emit(AddBookSuccessfulState());
+
+        GoRouter.of(context).pushReplacementNamed(Routes.kSuccessAdvertiseView);
+
+      });
     }
   }
 }

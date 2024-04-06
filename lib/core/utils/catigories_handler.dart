@@ -1,50 +1,32 @@
-class CategoryHandler {
-  static List<String> allCategories = [
-    'Drama',
-    'Fairytale',
-    'Fantasy',
-    'Graphic novel',
-    'Historical fiction',
-    'Horror',
-    'Mystery',
-    'Paranormal romance',
-    'Picture book',
-    'Poetry',
-    'Political thriller',
-    'Romance',
-    'Science fiction',
-    'Short story',
-    'Suspense',
-    'Thriller',
-    'Western',
-    'Young adult',
-    'True crime',
-    'Travel',
-    'Sports and leisure',
-    'Self help',
-    'Science',
-    'Review',
-    'True crime',
-    'Textbook',
-    'Religion, spirituality, and new age',
-    'Prayer',
-    'Philosophy',
-    'Memoir',
-    'Math',
-    'Journal',
-    'Humor',
-    'Home and garden',
-    'History',
-    'Health/fitness',
-    'Guide',
-    'Encyclopedia',
-    'Dictionary',
-    'Diary',
-    'Cookbook',
-    'Crafts/hobbies',
-    'Business/economics',
-    'Biography',
-    'Autobiography',
-    'Art/architecture',
-  ];
+import 'package:book_extchange/features/filter/data/models/category_model.dart';
+import 'package:book_extchange/features/filter/data/repos/category_repo/category_repo.dart';
+
+ class CategoryHandler {
+
+  CategoryHandler(this._categoryRepo , String userAcessToken){
+    userToken = userAcessToken;
+    getSupCategories();
+  }
+  final CategoryRepo _categoryRepo;
+  String userToken = '';
+  static List<CategoryModel> generalCategories = [];
+  static List<CategoryModel> educationalCategories = [];
+
+  void getSupCategories()async{
+    var results = await _categoryRepo.fetchEducationalCategories(userToken);
+    results.fold((l) {
+
+    }, (r) {
+      educationalCategories = r;
+    });
+
+    var results2 = await _categoryRepo.fetchGeneralCategories(userToken);
+    results2.fold((l) {
+
+    }, (r) {
+      generalCategories = r;
+    });
+
+  }
+
 }
