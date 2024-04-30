@@ -18,12 +18,20 @@ class MyAdsCubit extends Cubit<MyAdsState> {
 
   void fetchMyBooks(BuildContext context) async {
     emit(FetchMyAdsLoading());
-    print(BlocProvider.of<LoginCubit>(context).userModel.accessToken);
     var results = await _myAdsRepo.fetchMyBooks(BlocProvider.of<LoginCubit>(context).userModel.accessToken);
     results.fold((l) {
       emit(FetchMyAdsFailure(errorMessage: l.errorMessage));
     }, (r) {
       emit(FetchMyAdsSuccessful(allBooks: r));
+    });
+  }
+
+  void deleteAdd(BuildContext context , String bookId)async{
+    emit(FetchMyAdsLoading());
+    var results = await _myAdsRepo.deleteBook(BlocProvider.of<LoginCubit>(context).userModel.accessToken,bookId);
+    results.fold((l) {
+      emit(FetchMyAdsFailure(errorMessage: l.errorMessage));
+    }, (r) {
     });
   }
 

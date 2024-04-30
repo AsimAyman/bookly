@@ -3,9 +3,10 @@ import 'package:book_extchange/features/home/view/views/widgets/custom_book_cont
 import 'package:flutter/material.dart';
 
 class CustomBooksListViewHome extends StatelessWidget {
-  const CustomBooksListViewHome({super.key, required this.allBooks});
+  const CustomBooksListViewHome({super.key, required this.allBooks,this.myAds = false});
 
   final List<BookModel> allBooks;
+  final bool myAds;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class CustomBooksListViewHome extends StatelessWidget {
       child: ListView.builder(itemBuilder: (context, index) {
         return  Column(
           children: [
-            CustomBookContainer(bookModel: allBooks[index],),
+            CustomBookContainer(bookModel: allBooks[index],myAd: myAds,),
             const SizedBox(
               height: 16,
             ),

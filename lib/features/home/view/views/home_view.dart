@@ -1,6 +1,8 @@
 import 'package:book_extchange/core/routing/locator_service.dart';
 import 'package:book_extchange/core/utils/catigories_handler.dart';
 import 'package:book_extchange/features/auth/view/view_models/login_cubit/login_cubit.dart';
+import 'package:book_extchange/features/chat/data/repos/chat_repo.dart';
+import 'package:book_extchange/features/chat/view/view_models/chat_cubit.dart';
 import 'package:book_extchange/features/fav_ads/data/repos/fav_ads_repo.dart';
 import 'package:book_extchange/features/fav_ads/view/view_models/fav_ads_cubit.dart';
 import 'package:book_extchange/features/filter/data/repos/category_repo/category_repo.dart';

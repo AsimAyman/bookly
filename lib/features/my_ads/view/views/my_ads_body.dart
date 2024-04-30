@@ -59,6 +59,7 @@ class MyAdsBody extends StatelessWidget {
                             )
                           : CustomBooksListViewHome(
                               allBooks: state.allBooks,
+                    myAds: true,
                             )
                       : const SizedBox(),
                 ],

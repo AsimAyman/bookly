@@ -44,7 +44,6 @@ class AddBookRepoImp extends AddBookRepo {
       return right(null);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerSideError(e.toString()));
         return left(ServerSideError.fromDioException(e));
       } else {
         return left(ServerSideError(e.toString()));

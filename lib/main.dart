@@ -5,6 +5,8 @@ import 'package:book_extchange/core/utils/measures.dart';
 
 import 'package:book_extchange/core/utils/theme.dart';
 import 'package:book_extchange/features/auth/view/view_models/login_cubit/login_cubit.dart';
+import 'package:book_extchange/features/chat/data/repos/chat_repo.dart';
+import 'package:book_extchange/features/chat/view/view_models/chat_cubit.dart';
 import 'package:book_extchange/features/fav_ads/data/repos/fav_ads_repo.dart';
 import 'package:book_extchange/features/fav_ads/view/view_models/fav_ads_cubit.dart';
 
@@ -35,6 +37,9 @@ class MyApp extends StatelessWidget {
           create: (context) =>
           FavAdsCubit(getIt.get<FavAdsRepo>())..getFavAds(),
           lazy: false,
+        ),
+        BlocProvider(
+          create: (context) => ChatCubit(getIt.get<ChatRepo>()),
         ),
       ],
       child: MaterialApp.router(

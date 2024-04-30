@@ -61,6 +61,15 @@ class CustomHomeDrawer extends StatelessWidget {
               GoRouter.of(context).pushNamed(Routes.kAdvertiseView);
             },
           ),
+          ListTile(
+            leading: Icon(
+              Icons.book_online,
+            ),
+            title: const Text('Free E-Books'),
+            onTap: () {
+              GoRouter.of(context).pushNamed(Routes.kGoogleBookSearchView);
+            },
+          ),
 
           Spacer(),
           ListTile(

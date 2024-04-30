@@ -1,6 +1,8 @@
 
 import 'package:book_extchange/features/advertise/data/repo/add_book_repo.dart';
 import 'package:book_extchange/features/advertise/data/repo/add_book_repo_imp.dart';
+import 'package:book_extchange/features/chat/data/repos/chat_repo.dart';
+import 'package:book_extchange/features/chat/data/repos/chat_repo_imp.dart';
 import 'package:book_extchange/features/fav_ads/data/repos/fav_ads_repo.dart';
 import 'package:book_extchange/features/fav_ads/data/repos/fav_ads_repo_imp.dart';
 import 'package:book_extchange/features/filter/data/repos/category_repo/category_repo.dart';
@@ -25,6 +27,7 @@ void setupServiceLocator(){
   getIt.registerSingleton<FilterRepo>(FilterRepoImp(getIt.get<Dio>()));
   getIt.registerSingleton<FavAdsRepo>(FavAdsRepoImp(getIt.get<Dio>()));
   getIt.registerSingleton<AddBookRepo>(AddBookRepoImp(getIt.get<Dio>()));
+  getIt.registerSingleton<ChatRepo>(ChatRepoImp(getIt.get<Dio>()));
 
   // getIt.registerSingleton<LoginRepoImp>(LoginRepoImp(
   //   dio: getIt.get<Dio>(),

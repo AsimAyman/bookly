@@ -43,5 +43,29 @@ class MyAdsRepoImp extends MyAdsRepo {
     }
   }
 
+  @override
+  Future<Either<Failures, void>> deleteBook(String userToken, String bookId)async {
+    try {
+      var jsonData = await _dio.delete(
+        "${ApiHandler.baseUrl}book/delete/$bookId",
+        options: Options(
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': "Bearer $userToken"
+          },
+        ),
+      );
+
+      return right(null);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerSideError.fromDioException(e));
+      } else {
+        return left(ServerSideError(e.toString()));
+      }
+    }
+  }
+
 
 }

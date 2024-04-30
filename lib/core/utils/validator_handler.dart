@@ -92,8 +92,8 @@ class ValidatorHandler {
 
     // Check if the price is greater than or equal to zero
     double parsedPrice = double.parse(price);
-    if (parsedPrice < 0) {
-      return "Price cannot be negative";
+    if (parsedPrice < 5) {
+      return "Price cannot be Less than 5";
     }
 
     // Additional checks specific to your application can be added here
