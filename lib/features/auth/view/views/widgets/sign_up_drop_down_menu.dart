@@ -2,10 +2,7 @@
 import 'package:book_extchange/core/utils/govern_handler.dart';
 import 'package:book_extchange/core/utils/measures.dart';
 import 'package:book_extchange/features/auth/data/models/govern_model.dart';
-import 'package:book_extchange/features/auth/view/view_models/sign_up_cubit/sign_up_cubit.dart';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 
 class SignUpDropDownMenu extends StatefulWidget {

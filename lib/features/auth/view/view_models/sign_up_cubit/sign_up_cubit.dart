@@ -3,10 +3,8 @@ import 'package:bloc/bloc.dart';
 import 'package:book_extchange/core/errors/failures.dart';
 import 'package:book_extchange/core/utils/api_handler.dart';
 import 'package:book_extchange/features/auth/data/models/govern_model.dart';
-import 'package:book_extchange/features/auth/data/models/user_model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 
 part 'sign_up_state.dart';
 

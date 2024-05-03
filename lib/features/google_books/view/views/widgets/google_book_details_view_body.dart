@@ -1,12 +1,9 @@
 import 'package:book_extchange/core/utils/stylies_handler.dart';
 import 'package:book_extchange/features/google_books/data/models/google_book_model.dart';
-import 'package:book_extchange/features/google_books/view/views/widgets/book_details_app_bar.dart';
 import 'package:book_extchange/features/google_books/view/views/widgets/custom_book_image.dart';
 import 'package:book_extchange/features/google_books/view/views/widgets/custom_buy_and_preview_row.dart';
 import 'package:book_extchange/features/google_books/view/views/widgets/custom_rating_row.dart';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GoogleBookDetailsViewBody extends StatefulWidget {
   const GoogleBookDetailsViewBody({super.key,required this.bookModel});
@@ -28,7 +25,7 @@ class _GoogleBookDetailsViewBodyState extends State<GoogleBookDetailsViewBody> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const BookDetailsAppBar(),
+              // const BookDetailsAppBar(),
               const SizedBox(
                 height: 20,
               ),
@@ -64,16 +61,16 @@ class _GoogleBookDetailsViewBodyState extends State<GoogleBookDetailsViewBody> {
               const SizedBox(
                 height: 40,
               ),
-              const Align(
-                alignment: Alignment.centerLeft,
-                child:   Text(
-                  "You can also like",
-                  style: StylesHandler.textStyle16Bold,
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
+              // const Align(
+              //   alignment: Alignment.centerLeft,
+              //   child:   Text(
+              //     "You can also like",
+              //     style: StylesHandler.textStyle16Bold,
+              //   ),
+              // ),
+              // const SizedBox(
+              //   height: 10,
+              // ),
               // const SimilliarBooksListViewBuilder(),
               // const SizedBox(
               //   height: 10,

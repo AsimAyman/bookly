@@ -2,7 +2,6 @@ import 'package:book_extchange/core/errors/failures.dart';
 import 'package:book_extchange/core/utils/api_handler.dart';
 import 'package:book_extchange/features/edit_book/data/repos/edit_book_repo.dart';
 import 'package:book_extchange/features/home/data/models/book_model.dart';
-import 'package:book_extchange/features/home/data/repos/books_repo/book_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
@@ -51,7 +50,7 @@ class EditBookRepoImp extends EditBookRepo {
   ) async {
     try {
 
-      var jsonData = await _dio.get(
+      var jsonData = await _dio.put(
         "${ApiHandler.baseUrl}book/update/${bookModel.id}",
         options: Options(
           headers: {
@@ -66,13 +65,6 @@ class EditBookRepoImp extends EditBookRepo {
           "city": bookModel.govern,
           "town": bookModel.city,
           "price": newPrice,
-          "exchangable": bookModel.isExchangeable == 1 ? true : false,
-          "negationable": bookModel.isNegotiable == 1 ? true : false,
-          "state": true,
-          "category_id": bookModel.category,
-          "sub_category_id": bookModel.subCategory,
-          "subject_id": "",
-          "attachments":bookModel.imgsPath
         }
       );
 

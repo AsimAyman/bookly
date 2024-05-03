@@ -1,4 +1,3 @@
-import 'package:book_extchange/core/utils/measures.dart';
 import 'package:book_extchange/core/utils/validator_handler.dart';
 import 'package:book_extchange/core/widgets/custom_main_button.dart';
 import 'package:book_extchange/core/widgets/custom_text_form_field.dart';
@@ -23,12 +22,16 @@ class Details extends StatelessWidget {
             iconData: Icons.title_outlined,
             validator: ValidatorHandler.titleValidator,
           ),
-          const SizedBox(height: 16,),
+          const SizedBox(
+            height: 16,
+          ),
           DescriptionTextField(
               validator: ValidatorHandler.descriptionValidator,
               textEditingController:
                   AdvertiseCubit.get(context).descriptionController),
-          const SizedBox(height: 24,),
+          const SizedBox(
+            height: 24,
+          ),
           CustomMainButton(
             txt: 'Next',
             onTap: () {

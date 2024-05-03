@@ -2,7 +2,6 @@ import 'package:book_extchange/core/routing/routes.dart';
 import 'package:book_extchange/core/utils/measures.dart';
 import 'package:book_extchange/core/widgets/custom_error_dialog.dart';
 import 'package:book_extchange/features/auth/view/view_models/login_cubit/login_cubit.dart';
-
 import 'package:book_extchange/features/book_details/view/views/widgets/back_button.dart';
 import 'package:book_extchange/features/book_details/view/views/widgets/custom_button_icon_text.dart';
 import 'package:book_extchange/features/book_details/view/views/widgets/custom_carousel_images.dart';
@@ -11,7 +10,6 @@ import 'package:book_extchange/features/book_details/view/views/widgets/custom_f
 import 'package:book_extchange/features/book_details/view/views/widgets/custom_price_and_city.dart';
 import 'package:book_extchange/features/chat/view/view_models/chat_cubit.dart';
 import 'package:book_extchange/features/home/data/models/book_model.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -54,7 +52,7 @@ class BookDetailsBody extends StatelessWidget {
                           ),
                           const CustomBackButton(),
                           FavButton(
-                            bookId: bookModel.id.toString(),
+                            bookModel: bookModel,
                           ),
                         ],
                       ),

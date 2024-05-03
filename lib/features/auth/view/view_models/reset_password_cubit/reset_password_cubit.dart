@@ -3,7 +3,6 @@ import 'package:book_extchange/core/errors/failures.dart';
 import 'package:book_extchange/core/utils/api_handler.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:meta/meta.dart';
 
 part 'reset_password_state.dart';
 

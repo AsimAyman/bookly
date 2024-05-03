@@ -1,9 +1,7 @@
-import 'package:book_extchange/core/utils/measures.dart';
 import 'package:book_extchange/core/widgets/custom_error_dialog.dart';
+import 'package:book_extchange/core/widgets/custom_no_ads_widget.dart';
 import 'package:book_extchange/features/auth/view/view_models/login_cubit/login_cubit.dart';
-import 'package:book_extchange/features/chat/data/models/chat_room_model.dart';
 import 'package:book_extchange/features/chat/view/view_models/chat_cubit.dart';
-import 'package:book_extchange/features/chat/view/views/widgets/custom_chat_card.dart';
 import 'package:book_extchange/features/chat/view/views/widgets/custom_chat_rooms_list_view.dart';
 import 'package:book_extchange/features/home/view/view_models/bottom_nav_cubit/bottom_nav_cubit.dart';
 import 'package:book_extchange/features/home/view/views/widgets/home_app_bar.dart';
@@ -56,7 +54,10 @@ class _ChatRoomsBodyState extends State<ChatRoomsBody> {
                             .openDrawer();
                       },
                     ),
-                    CustomChatRoomsListView(chatRoomModels: BlocProvider.of<ChatCubit>(context).chatRoomModels,),
+                    BlocProvider.of<ChatCubit>(context).chatRoomModels.isEmpty ? const CustomNoAdsWidget(
+                      txt:
+                      "You Don't Have any chat with others try to start chatting with booksellers",
+                    ) :  CustomChatRoomsListView(chatRoomModels: BlocProvider.of<ChatCubit>(context).chatRoomModels,),
                   ],
                 ),
               ),

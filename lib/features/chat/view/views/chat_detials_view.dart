@@ -1,6 +1,5 @@
 import 'package:book_extchange/core/widgets/custom_error_dialog.dart';
 import 'package:book_extchange/features/auth/view/view_models/login_cubit/login_cubit.dart';
-import 'package:book_extchange/features/auth/view/views/widgets/custom_head_text.dart';
 import 'package:book_extchange/features/chat/view/view_models/chat_cubit.dart';
 import 'package:book_extchange/features/chat/view/views/widgets/chat_detials_body.dart';
 import 'package:flutter/material.dart';
@@ -37,6 +36,8 @@ class _ChatDetailsViewState extends State<ChatDetailsView> {
     return ModalProgressHUD(
       inAsyncCall: state is FetchChatRoomDetailsLoading || chatCubit.chatRoomDetailsModel == null,
       child: Scaffold(
+
+        resizeToAvoidBottomInset: true,
         backgroundColor: Colors.white,
         appBar: AppBar(
           surfaceTintColor: Colors.white,
@@ -59,7 +60,7 @@ class _ChatDetailsViewState extends State<ChatDetailsView> {
                 size: 32,
               )),
         ),
-        body: ChatDetailsBody(),
+        body:  ChatDetailsBody(chatRoomId: widget.id.toString(),),
       ),
     );
   },

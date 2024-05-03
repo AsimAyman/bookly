@@ -1,10 +1,7 @@
 import 'package:book_extchange/core/errors/failures.dart';
 import 'package:book_extchange/core/utils/api_handler.dart';
-import 'package:book_extchange/features/filter/data/models/category_model.dart';
-import 'package:book_extchange/features/filter/data/repos/category_repo/category_repo.dart';
 import 'package:book_extchange/features/filter/data/repos/filter_repo/filter_repo.dart';
 import 'package:book_extchange/features/home/data/models/book_model.dart';
-import 'package:book_extchange/features/home/data/repos/books_repo/book_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
@@ -21,11 +18,11 @@ class FilterRepoImp extends FilterRepo {
     bool isEducational,
     String subCategoryID,
   ) async {
-    print(govern);
-    print(searchByPrice);
-    print(price);
-    print(isEducational);
-    print(subCategoryID);
+     
+     
+     
+     
+     
     try {
       var jsonData = await _dio.get(
         "${ApiHandler.baseUrl}book",

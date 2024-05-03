@@ -1,5 +1,7 @@
 import 'package:book_extchange/core/widgets/custom_text_form_field.dart';
+import 'package:book_extchange/features/google_books/view/view_models/google_books_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomGoogleSearchTextField extends StatelessWidget {
   const CustomGoogleSearchTextField({super.key});
@@ -11,9 +13,7 @@ class CustomGoogleSearchTextField extends StatelessWidget {
         child: CustomTextFormField(
             autoFocus: true,
             onChanged: (txt) {
-              // BlocProvider.of<SearchByTitleCubit>(context)
-              //     .search(txt, context);
-              print(txt);
+              BlocProvider.of<GoogleBooksCubit>(context).fetchBooks(txt);
             },
             textEditingController: TextEditingController(),
             hintTxt: "Search",

@@ -34,13 +34,21 @@ class BookModel {
   });
 
   factory BookModel.fromJson(json) {
+    List<String> parts = json['price'].split(".");
+    String pric = "0";
+    try{
+      pric = parts[0];
+    }catch(e){
+       
+    }
+
     return BookModel(
       id: json['id'],
       title: json['title'],
       description: json['description'],
       govern: json['city'],
       city: json['town'],
-      price: json['price'],
+      price: pric,
       isNegotiable: json['negationable'],
       isExchangeable: json['exchangable'],
       status: json['state'],

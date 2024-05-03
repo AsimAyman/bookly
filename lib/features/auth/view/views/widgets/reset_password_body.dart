@@ -8,7 +8,6 @@ import 'package:book_extchange/core/widgets/custom_white_logo_with_text.dart';
 import 'package:book_extchange/features/auth/view/view_models/reset_password_cubit/reset_password_cubit.dart';
 import 'package:book_extchange/features/auth/view/views/widgets/custom_back_button.dart';
 import 'package:book_extchange/features/auth/view/views/widgets/custom_head_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';

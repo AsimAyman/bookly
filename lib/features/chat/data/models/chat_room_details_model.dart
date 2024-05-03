@@ -16,7 +16,11 @@ class ChatRoomDetailsModel {
   factory ChatRoomDetailsModel.fromJson(jsonData) {
     List<MessageModel> mModels = [];
     jsonData['messages'].forEach((e) {
-      mModels.add(MessageModel.fromJson(e));
+      try{
+        mModels.add(MessageModel.fromJson(e));
+      }catch(e){
+         
+      }
     });
     return ChatRoomDetailsModel(
       sellerName: jsonData['name'],

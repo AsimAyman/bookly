@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:book_extchange/core/errors/failures.dart';
 import 'package:book_extchange/core/utils/api_handler.dart';
 import 'package:book_extchange/features/auth/data/models/govern_model.dart';
@@ -7,7 +6,6 @@ import 'package:book_extchange/features/auth/view/view_models/login_cubit/login_
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
 
 part 'profile_state.dart';
 

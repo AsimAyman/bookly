@@ -41,3 +41,5 @@ class FetchChatRoomDetailsFailure extends ChatState {
   FetchChatRoomDetailsFailure({required this.errorMessage});
 
 }
+
+class NewMessage extends ChatState {}

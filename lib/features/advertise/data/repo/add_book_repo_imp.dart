@@ -18,7 +18,7 @@ class AddBookRepoImp extends AddBookRepo {
       String userToken, BookModel bookModel, List<File> imgs) async {
     try {
       List<String> imgpaths = await uploadImages(userToken, imgs);
-      print(imgpaths);
+       
       var jsonData = await _dio.post("${ApiHandler.baseUrl}book/store",
           options: Options(
             headers: {
@@ -62,7 +62,7 @@ class AddBookRepoImp extends AddBookRepo {
             contentType: MediaType('image','png')),
           "type":"image/png"
         });
-        print(formData);
+         
         var jsonData =
             await _dio.post("${ApiHandler.baseUrl}book/upload-attachment",
                 options: Options(
@@ -73,10 +73,10 @@ class AddBookRepoImp extends AddBookRepo {
                   },
                 ),
                 data: formData);
-        print(jsonData.data);
+         
         imagePaths.add(jsonData.data['data']);
       } catch (e) {
-        print("error in post image ${e.toString()}");
+         
       }
     }
     return imagePaths;

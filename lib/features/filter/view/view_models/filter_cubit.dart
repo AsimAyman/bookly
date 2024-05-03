@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:book_extchange/core/utils/govern_handler.dart';
 import 'package:book_extchange/features/auth/data/models/govern_model.dart';
-import 'package:book_extchange/features/auth/view/view_models/login_cubit/login_cubit.dart';
 import 'package:book_extchange/features/filter/data/models/category_model.dart';
 import 'package:book_extchange/features/filter/data/repos/category_repo/category_repo.dart';
 import 'package:book_extchange/features/filter/data/repos/filter_repo/filter_repo.dart';
@@ -61,7 +60,7 @@ class FilterCubit extends Cubit<FilterState> {
     emit(FilterLoading());
     var results = await _categoryRepo.fetchGeneralCategories(userAccessToken);
     results.fold((l) {
-      print(l.errorMessage);
+       
       emit(FetchedGeneralCategories());
 
     }, (r) {
@@ -76,7 +75,7 @@ class FilterCubit extends Cubit<FilterState> {
     emit(FilterLoading());
     var results = await _categoryRepo.fetchEducationalCategories(userAccessToken);
     results.fold((l) {
-      print(l.errorMessage);
+       
       emit(FetchedEducationalCategories());
 
     }, (r) {

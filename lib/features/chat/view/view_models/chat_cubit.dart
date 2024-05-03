@@ -1,8 +1,12 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 import 'package:book_extchange/features/chat/data/models/chat_room_details_model.dart';
 import 'package:book_extchange/features/chat/data/models/chat_room_model.dart';
+import 'package:book_extchange/features/chat/data/models/message_model.dart';
 import 'package:book_extchange/features/chat/data/repos/chat_repo.dart';
 import 'package:meta/meta.dart';
+import 'package:pusher_channels_flutter/pusher_channels_flutter.dart';
 
 part 'chat_state.dart';
 
@@ -14,9 +18,13 @@ class ChatCubit extends Cubit<ChatState> {
   ChatRoomDetailsModel? chatRoomDetailsModel;
   List<ChatRoomModel> chatRoomModels = [];
 
-  void createChatRoom(String userToken , String bookId)async{
+  List<MessageModel> newMessages = [];
+  PusherChannelsFlutter pusher = PusherChannelsFlutter.getInstance();
+  late PusherChannel channel;
+
+  void createChatRoom(String userToken, String bookId) async {
     emit(CreateChatLoading());
-    print(userToken);
+     
     var results = await _chatRepo.createChatRoom(userToken, bookId);
     results.fold((l) {
       emit(CreateChatFailure(errorMessage: l.errorMessage));
@@ -25,9 +33,9 @@ class ChatCubit extends Cubit<ChatState> {
     });
   }
 
-  void fetchAllChatRooms(String userToken)async{
+  void fetchAllChatRooms(String userToken) async {
     emit(FetchChatRoomsLoading());
-    print(userToken);
+     
     var results = await _chatRepo.fetchAllChatRooms(userToken);
     results.fold((l) {
       emit(FetchChatRoomsFailure(errorMessage: l.errorMessage));
@@ -37,7 +45,7 @@ class ChatCubit extends Cubit<ChatState> {
     });
   }
 
-  void fetchChatRoomDetails(String userToken , String roomId)async{
+  void fetchChatRoomDetails(String userToken, String roomId) async {
     emit(FetchChatRoomDetailsLoading());
     var results = await _chatRepo.fetchChatRoomDetails(userToken, roomId);
     results.fold((l) {
@@ -48,12 +56,59 @@ class ChatCubit extends Cubit<ChatState> {
     });
   }
 
-
-
-  void sendMessage(String userToken , String roomId , String content)async{
-    var results = await _chatRepo.sendMessage(userToken, roomId , content);
-
+  Future<void> sendMessage(
+      String userToken, String roomId, String content) async {
+    var results = await _chatRepo.sendMessage(userToken, roomId, content);
   }
 
+  void listenToMessagesStream(String userAccessToken, String chatRoomId) async {
+     
+    void onEvent(event) {
+       
+      if (event.eventName == "message.sent") {
+        try {
+          var s = json.decode(event.data);
+           
+          MessageModel messageModel = MessageModel.fromJson(s);
+          newMessages.add(messageModel);
+           
+          emit(NewMessage());
+           
+        } catch (e) {
+           
+        }
+      }
+    }
 
+    try {
+      await pusher.init(
+        apiKey: "64fbcb19855c9773256f",
+        cluster: "eu",
+        authEndpoint: "http://bookly.website/api/broadcasting/auth",
+      );
+      channel = await pusher.subscribe(channelName: 'chat.$chatRoomId');
+      await pusher.connect();
+      channel.onEvent = onEvent;
+       
+    } catch (e) {
+       
+    }
+  }
+
+  void onTriggerEventPressed() async {
+    try {
+      pusher.trigger(PusherEvent(
+        channelName: "chat.1",
+        eventName: "message.sent",
+        data: {
+          "content": "Message from pusher",
+          "buyer_id": 1,
+          "seller_id": 2,
+          "time": "23 Apr 2024 03:38 pm"
+        },
+      ));
+    } catch (e) {
+       
+    }
+  }
 }

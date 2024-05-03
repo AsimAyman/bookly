@@ -3,8 +3,6 @@ import 'package:book_extchange/core/utils/api_handler.dart';
 import 'package:book_extchange/features/chat/data/models/chat_room_details_model.dart';
 import 'package:book_extchange/features/chat/data/models/chat_room_model.dart';
 import 'package:book_extchange/features/chat/data/repos/chat_repo.dart';
-import 'package:book_extchange/features/home/data/models/book_model.dart';
-import 'package:book_extchange/features/home/data/repos/books_repo/book_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
@@ -109,9 +107,13 @@ class ChatRepoImp extends ChatRepo {
       return right(null);
     } catch (e) {
       if (e is DioException) {
+         
         return left(ServerSideError.fromDioException(e));
       } else {
+         
+
         return left(ServerSideError(e.toString()));
+
       }
     }
   }

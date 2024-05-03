@@ -1,12 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:book_extchange/core/errors/failures.dart';
-import 'package:book_extchange/core/routing/routes.dart';
 import 'package:book_extchange/core/utils/api_handler.dart';
 import 'package:book_extchange/features/auth/data/models/user_model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:meta/meta.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 part 'login_state.dart';
@@ -22,7 +19,6 @@ class LoginCubit extends Cubit<LoginState> {
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-
 
   void login() async {
     emit(LoginLoading());
@@ -57,19 +53,19 @@ class LoginCubit extends Cubit<LoginState> {
     }
   }
 
-  Future<void> checkIfSignedIn()async{
+  Future<void> checkIfSignedIn() async {
     _prefs = await SharedPreferences.getInstance();
-    String? accessToken =  _prefs.getString("userToken");
+    String? accessToken = _prefs.getString("userToken");
 
-    if(accessToken == null){
+    if (accessToken == null) {
       isSignedIn = false;
       return;
-    }else{
+    } else {
       await _getUserCredByToken(accessToken);
     }
   }
 
-  Future<void> _getUserCredByToken(String token)async{
+  Future<void> _getUserCredByToken(String token) async {
     try {
       var response = await _dio.get(
         "${ApiHandler.baseUrl}authenticated-user",
@@ -85,13 +81,13 @@ class LoginCubit extends Cubit<LoginState> {
       jsonData['access_token'] = token;
       userModel = UserModel.fromJson(jsonData);
       isSignedIn = true;
-    }catch(e){
+    } catch (e) {
       isSignedIn = false;
       return;
     }
   }
 
-  Future<void> logout()async{
+  Future<void> logout() async {
     _prefs = await SharedPreferences.getInstance();
     _prefs.remove("userToken");
     isSignedIn = false;

@@ -15,11 +15,9 @@ import 'package:book_extchange/features/google_books/view/views/google_search_vi
 import 'package:book_extchange/features/home/data/models/book_model.dart';
 import 'package:book_extchange/features/home/view/views/home_view.dart';
 import 'package:book_extchange/features/home/view/views/search_by_title_view.dart';
-import 'package:book_extchange/features/home/view/views/widgets/search_by_title_body.dart';
 import 'package:book_extchange/features/on_boarding/view/views/on_boarding_view.dart';
 import 'package:book_extchange/features/profile/view/views/profile_view.dart';
 import 'package:book_extchange/features/splash/view/views/splash_view.dart';
-
 import 'package:go_router/go_router.dart';
 
 abstract class Routes {
@@ -232,8 +230,7 @@ abstract class Routes {
           return RouterTransitionFactory.getTransitionPage(
             context: context,
             state: state,
-            child: const GoogleSearchView(
-            ),
+            child: const GoogleSearchView(),
             type: 'scale', // fade|rotation|scale|size|slide
           );
         }),
@@ -241,8 +238,8 @@ abstract class Routes {
         name: kGoogleBooksDetails,
         path: '/GoogleBooksDetails',
         pageBuilder: (context, state) {
-          final GoogleBookModel googleBookModel = state.extra as GoogleBookModel;
-
+          final GoogleBookModel googleBookModel =
+              state.extra as GoogleBookModel;
           return RouterTransitionFactory.getTransitionPage(
             context: context,
             state: state,

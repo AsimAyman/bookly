@@ -1,10 +1,7 @@
-// ignore: depend_on_referenced_packages
-import 'package:bloc/bloc.dart';
 import 'package:book_extchange/core/routing/routes.dart';
 import 'package:book_extchange/features/auth/view/view_models/login_cubit/login_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:go_router/go_router.dart';
 
 part 'splash_state.dart';

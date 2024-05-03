@@ -1,41 +1,51 @@
 import 'package:book_extchange/core/utils/stylies_handler.dart';
+import 'package:book_extchange/core/widgets/custom_center_loading_widget.dart';
+import 'package:book_extchange/core/widgets/custom_error_dialog.dart';
+import 'package:book_extchange/features/google_books/view/view_models/google_books_cubit.dart';
+import 'package:book_extchange/features/google_books/view/views/widgets/custom_google_book_conatiner.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GoogleSearchResultsListView extends StatelessWidget {
   const GoogleSearchResultsListView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: (context, index) {
-        if (index == 0) {
-          return const Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30),
-                child: Text(
-                  "Search Results",
-                  style: StylesHandler.textStyle16Bold,
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              // CustomBookContainer()
-            ],
-          );
-        } else {
-          return const SizedBox(
-            height: 20,
-          );
-          // return const CustomBookContainer();
+    return BlocConsumer<GoogleBooksCubit, GoogleBooksState>(
+      listener: (context, state) {
+        if(state is FetchGoogleBookFailure){
+          customErrorDialog(context, title: "Error", content: state.errorMessage);
         }
       },
-      itemCount: 10,
+      builder: (context, state) {
+        return Column(
+          children: [
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30),
+              child: Text(
+                "Search Results",
+                style: StylesHandler.textStyle16Bold,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            state is FetchGoogleBookLoading ? CustomCenterLoadingWidget() : SizedBox(),
+            state is FetchGoogleBookSuccess ?  Expanded(
+              child: ListView.builder(
+                itemBuilder: (context, index) {
+                  return CustomGoogleBookContainer(bookModel: state.googleBooks[index]);
+                },
+                itemCount: state.googleBooks.length,
+              
+              ),
+            ) : SizedBox(),
+          ],
+        );
+      },
     );
   }
 }

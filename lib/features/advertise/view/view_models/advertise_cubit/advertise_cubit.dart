@@ -102,7 +102,7 @@ class AdvertiseCubit extends Cubit<AdvertiseState> {
       selectedImage = File(pickedImage.path);
       selectedImages.add(selectedImage);
       emit(AddImage());
-      print('image is added');
+       
     }
   }
 

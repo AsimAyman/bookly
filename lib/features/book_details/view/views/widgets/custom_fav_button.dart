@@ -1,22 +1,42 @@
+import 'package:book_extchange/features/auth/view/view_models/login_cubit/login_cubit.dart';
 import 'package:book_extchange/features/fav_ads/view/view_models/fav_ads_cubit.dart';
+import 'package:book_extchange/features/home/data/models/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FavButton extends StatefulWidget {
   const FavButton({
-    super.key, required this.bookId,
+    super.key, required this.bookModel,
   });
-  final String bookId;
+  final BookModel bookModel;
 
   @override
   State<FavButton> createState() => _FavButtonState();
 }
 
 class _FavButtonState extends State<FavButton> {
+
+
+  bool isFav = false;
+
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    for(BookModel book in BlocProvider.of<FavAdsCubit>(context).bookModelList){
+      if(widget.bookModel.id.toString() == book.id.toString()){
+        isFav = true;
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    String userAccessToken = BlocProvider.of<LoginCubit>(context).userModel.accessToken;
     var favAdsCubit = BlocProvider.of<FavAdsCubit>(context);
-    bool isFav = favAdsCubit.favAds.contains(widget.bookId);
+
     return Positioned(
       top: 30,
       right: 16,
@@ -32,11 +52,11 @@ class _FavButtonState extends State<FavButton> {
             onTap: () {
               setState(() {
                 if(isFav){
-                  favAdsCubit.removeFavBook(widget.bookId);
+                  favAdsCubit.removeFavBook(widget.bookModel.id.toString() , userAccessToken);
                   isFav = false;
                 }
                 else{
-                  favAdsCubit.addNewFavBook(widget.bookId);
+                  favAdsCubit.addNewFavBook(widget.bookModel , userAccessToken);
                   isFav = true;
                 }
               });

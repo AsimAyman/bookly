@@ -1,21 +1,44 @@
 import 'package:book_extchange/core/utils/measures.dart';
-import 'package:book_extchange/core/utils/theme.dart';
-import 'package:book_extchange/core/widgets/custom_center_loading_widget.dart';
-import 'package:book_extchange/core/widgets/custom_text_form_field.dart';
 import 'package:book_extchange/features/auth/view/view_models/login_cubit/login_cubit.dart';
 import 'package:book_extchange/features/chat/view/view_models/chat_cubit.dart';
 import 'package:book_extchange/features/chat/view/views/widgets/custom_container_point_to_book.dart';
 import 'package:book_extchange/features/chat/view/views/widgets/custom_text_form_field_send_message.dart';
 import 'package:book_extchange/features/chat/view/views/widgets/my_message_container.dart';
 import 'package:book_extchange/features/chat/view/views/widgets/sender_message_container.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ChatDetailsBody extends StatelessWidget {
-  const ChatDetailsBody({super.key});
+class ChatDetailsBody extends StatefulWidget {
+  const ChatDetailsBody({super.key, required this.chatRoomId});
+
+  final String chatRoomId;
+
+  @override
+  State<ChatDetailsBody> createState() => _ChatDetailsBodyState();
+}
+
+class _ChatDetailsBodyState extends State<ChatDetailsBody> {
+  TextEditingController messageController = TextEditingController();
+  ScrollController scrollController = ScrollController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    BlocProvider.of<ChatCubit>(context).listenToMessagesStream(
+        BlocProvider.of<LoginCubit>(context).userModel.accessToken,
+        widget.chatRoomId);
+    Future.delayed(Duration(milliseconds: 500), () {
+      scrollController.jumpTo(scrollController.position.maxScrollExtent);
+    });
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    // BlocProvider.of<ChatCubit>(context).channel.unsubscribe();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +47,73 @@ class ChatDetailsBody extends StatelessWidget {
 
     return chatCubit.chatRoomDetailsModel == null
         ? const SizedBox()
-        : SizedBox(
-            width: deviceWidth,
-            height: deviceHeight,
-            child: Stack(
-              children: [
-                Container(
+        : Stack(
+            fit: StackFit.expand,
+            children: [
+              Positioned(
+                height: deviceHeight - 80,
+                width: deviceWidth,
+                bottom: 0,
+                child: SingleChildScrollView(
+                  controller: scrollController,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 95,
+                        ),
+                        ListView.builder(
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          itemCount: chatCubit
+                              .chatRoomDetailsModel!.messageModels.length,
+                          itemBuilder: (context, index) {
+                            return chatCubit.chatRoomDetailsModel!
+                                        .messageModels[index].senderId ==
+                                    userId.toString()
+                                ? MyMessageContainer(
+                                    txt: chatCubit.chatRoomDetailsModel!
+                                        .messageModels[index].content)
+                                : SenderMessageContainer(
+                                    txt: chatCubit.chatRoomDetailsModel!
+                                        .messageModels[index].content);
+                          },
+                        ),
+                        BlocBuilder<ChatCubit, ChatState>(
+                          builder: (context, state) {
+                             
+                             
+                            return ListView.builder(
+                              shrinkWrap: true,
+                              physics: NeverScrollableScrollPhysics(),
+                              itemCount: chatCubit.newMessages.length,
+                              itemBuilder: (context, index) {
+                                return chatCubit.newMessages[index].senderId ==
+                                        userId.toString()
+                                    ? MyMessageContainer(
+                                        txt: chatCubit
+                                            .newMessages[index].content)
+                                    : SenderMessageContainer(
+                                        txt: chatCubit
+                                            .newMessages[index].content);
+                              },
+                            );
+                          },
+                        ),
+                        SizedBox(
+                          height: 75,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 0,
+                child: Container(
                   height: 80,
+                  width: deviceWidth,
                   color: Colors.white,
                   child: Column(
                     children: [
@@ -40,59 +123,43 @@ class ChatDetailsBody extends StatelessWidget {
                     ],
                   ),
                 ),
-                Positioned(
-                  height: deviceHeight - 80,
+              ),
+              Positioned(
+                bottom: 0,
+                child: Container(
+                  height: 70,
                   width: deviceWidth,
-                  top: 80,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
-                    child: ListView.builder(
-                      itemCount:
-                          chatCubit.chatRoomDetailsModel!.messageModels.length,
-                      itemBuilder: (context, index) {
-                        return chatCubit.chatRoomDetailsModel!
-                                    .messageModels[index].buyer_id ==
-                                userId
-                            ? MyMessageContainer(
-                                txt: chatCubit.chatRoomDetailsModel!
-                                    .messageModels[index].content)
-                            : chatCubit.chatRoomDetailsModel!
-                                        .messageModels[index].seller_id ==
-                                    userId
-                                ? SenderMessageContainer(
-                                    txt: chatCubit.chatRoomDetailsModel!
-                                        .messageModels[index].content)
-                                : SizedBox();
-                      },
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: 0,
-                  child: Container(
-                    height: 70,
-                    width: deviceWidth,
-                    color: Colors.grey.shade200,
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: SizedBox(
-                            width: deviceWidth - 20,
-                            child: TextFormFieldSendMessage(
-                              textEditingController: TextEditingController(),
-                              onSumbit: (p0) {
-                                chatCubit.sendMessage(BlocProvider.of<LoginCubit>(context).userModel.accessToken, chatCubit.chatRoomDetailsModel!.roomId.toString(), p0);
-                              },
-                            ),
+                  color: Colors.grey.shade200,
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: SizedBox(
+                          width: deviceWidth - 20,
+                          child: TextFormFieldSendMessage(
+                            textEditingController: messageController,
+                            onSumbit: (p0) async {
+                              messageController.clear();
+                              await chatCubit.sendMessage(
+                                BlocProvider.of<LoginCubit>(context)
+                                    .userModel
+                                    .accessToken,
+                                chatCubit.chatRoomDetailsModel!.roomId
+                                    .toString(),
+                                p0,
+                              );
+                              // messageController.dispose();
+                              scrollController.jumpTo(
+                                  scrollController.position.maxScrollExtent);
+                            },
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           );
   }
 }

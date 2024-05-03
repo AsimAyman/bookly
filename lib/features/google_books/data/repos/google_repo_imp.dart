@@ -9,24 +9,27 @@ class GoogleRepoImp extends GoogleRepo {
 
   GoogleRepoImp(this._dio);
 
-
   @override
-  Future<Either<Failures, List<GoogleBookModel>>> fetchBooksByTitle(String title) async {
+  Future<Either<Failures, List<GoogleBookModel>>> fetchBooksByTitle(
+      String title) async {
     try {
-      var jsonData = await _dio.get("https://www.googleapis.com/books/v1/volumes?q=$title");
+      var jsonData = await _dio
+          .get("https://www.googleapis.com/books/v1/volumes?q=$title");
       List<GoogleBookModel> bookModelList = [];
       for (var data in jsonData.data['items']) {
-        bookModelList.add(GoogleBookModel.fromJson(data));
+        try {
+          bookModelList.add(GoogleBookModel.fromJson(data));
+        } catch (e) {
+           
+        }
       }
       return right(bookModelList);
     } catch (e) {
-      if(e is DioException){
+      if (e is DioException) {
         return left(ServerSideError.fromDioException(e));
-      }else{
+      } else {
         return left(ServerSideError(e.toString()));
       }
     }
   }
-
-
 }

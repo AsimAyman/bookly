@@ -1,5 +1,3 @@
-// ignore: depend_on_referenced_packages
-import 'package:bloc/bloc.dart';
 import 'package:book_extchange/features/auth/view/view_models/login_cubit/login_cubit.dart';
 import 'package:book_extchange/features/home/data/models/book_model.dart';
 import 'package:book_extchange/features/home/data/repos/books_repo/book_repo.dart';

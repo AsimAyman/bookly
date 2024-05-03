@@ -1,11 +1,7 @@
 import 'package:book_extchange/core/errors/failures.dart';
 import 'package:book_extchange/core/utils/api_handler.dart';
 import 'package:book_extchange/features/fav_ads/data/repos/fav_ads_repo.dart';
-import 'package:book_extchange/features/filter/data/models/category_model.dart';
-import 'package:book_extchange/features/filter/data/repos/category_repo/category_repo.dart';
-import 'package:book_extchange/features/filter/data/repos/filter_repo/filter_repo.dart';
 import 'package:book_extchange/features/home/data/models/book_model.dart';
-import 'package:book_extchange/features/home/data/repos/books_repo/book_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
@@ -15,38 +11,84 @@ class FavAdsRepoImp extends FavAdsRepo {
   FavAdsRepoImp(this._dio);
 
   @override
-  Future<Either<Failures, List<BookModel>>> fetchFavAds(
-      List<String> Ids, String userToken) async {
-    List<BookModel> bookModelList = [];
+  Future<Either<Failures, List<BookModel>>> fetchFavAds(String userToken)async {
     try {
-      for (String id in Ids) {
-        print(id);
-        try {
-          var jsonData = await _dio.get(
-            "${ApiHandler.baseUrl}book/$id",
-            options: Options(
-              headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': "Bearer $userToken"
-              },
-            ),
-          );
-          try {
-            bookModelList.add(BookModel.fromJson(jsonData.data['data']));
-          } catch (e) {}
-        } catch (e) {
+
+      var jsonData = await _dio.get(
+        "${ApiHandler.baseUrl}favorite-books",
+        options: Options(
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': "Bearer $userToken"
+          },
+        ),
+      );
+      List<BookModel> bookModelList = [];
+      for (var data in jsonData.data['data']) {
+        try{
+          bookModelList.add(BookModel.fromJson(data));
+        }catch(e){
 
         }
       }
       return right(bookModelList);
-    }catch(e){
+    } catch (e) {
       if (e is DioException) {
         return left(ServerSideError.fromDioException(e));
       } else {
         return left(ServerSideError(e.toString()));
       }
     }
+  }
 
+  @override
+  Future<Either<Failures, void>> addFavAd(String bookId,String userToken)async {
+    try {
+
+      var jsonData = await _dio.post(
+          "${ApiHandler.baseUrl}book/add-to-favorite/$bookId",
+          options: Options(
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+              'Authorization': "Bearer $userToken"
+            },
+          ),
+      );
+
+      return right(null);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerSideError.fromDioException(e));
+      } else {
+        return left(ServerSideError(e.toString()));
+      }
+    }
+  }
+
+  @override
+  Future<Either<Failures, void>> removeFavAd(String bookId,String userToken) async {
+    try {
+
+      var jsonData = await _dio.delete(
+        "${ApiHandler.baseUrl}book/delete-from-favorite/$bookId",
+        options: Options(
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': "Bearer $userToken"
+          },
+        ),
+      );
+
+      return right(null);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerSideError.fromDioException(e));
+      } else {
+        return left(ServerSideError(e.toString()));
+      }
+    }
   }
 }

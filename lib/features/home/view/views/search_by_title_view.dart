@@ -3,7 +3,6 @@ import 'package:book_extchange/features/auth/view/views/widgets/custom_head_text
 import 'package:book_extchange/features/home/data/repos/books_repo/book_repo.dart';
 import 'package:book_extchange/features/home/view/view_models/search_by_title_cubit/search_by_title_cubit.dart';
 import 'package:book_extchange/features/home/view/views/widgets/search_by_title_body.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';

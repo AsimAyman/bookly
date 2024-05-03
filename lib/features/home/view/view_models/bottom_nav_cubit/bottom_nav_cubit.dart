@@ -24,6 +24,6 @@ class BottomNavCubit extends Cubit<BottomNavState> {
   void onTapChange(int newIndex){
     selectedIndex = newIndex;
     emit(BottomNavChanged());
-    print(selectedIndex);
+     
   }
 }

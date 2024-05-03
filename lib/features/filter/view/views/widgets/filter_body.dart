@@ -1,5 +1,4 @@
 import 'package:book_extchange/core/routing/routes.dart';
-import 'package:book_extchange/core/utils/govern_handler.dart';
 import 'package:book_extchange/core/widgets/custom_drop_down_menu.dart';
 import 'package:book_extchange/core/widgets/custom_error_dialog.dart';
 import 'package:book_extchange/core/widgets/custom_main_button.dart';
@@ -8,9 +7,7 @@ import 'package:book_extchange/features/auth/view/view_models/login_cubit/login_
 import 'package:book_extchange/features/filter/data/models/category_model.dart';
 import 'package:book_extchange/features/filter/view/view_models/filter_cubit.dart';
 import 'package:book_extchange/features/filter/view/views/widgets/custom_price_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';

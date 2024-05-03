@@ -1,3 +1,4 @@
+import 'package:book_extchange/core/widgets/custom_error_dialog.dart';
 import 'package:book_extchange/features/google_books/view/views/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -11,7 +12,7 @@ class CustomBuyAndPreviewRow extends StatelessWidget {
       children: [
         Expanded(
           child: CustomButton(
-            text: "9.99\$",
+            text: "0 \$",
             backgroundColor: Colors.white,
             textColor: Colors.black,
             borderRadius: const  BorderRadius.only(bottomLeft: Radius.circular(16),topLeft: Radius.circular(16)),
@@ -26,11 +27,11 @@ class CustomBuyAndPreviewRow extends StatelessWidget {
             borderRadius: const  BorderRadius.only(bottomRight: Radius.circular(16),topRight: Radius.circular(16)),
             onTap: () async {
               final Uri url =Uri.parse(previewLink);
-              print(url);
+               
                 if(await canLaunchUrl(url)){
                   launchUrl(url);
                 }else{
-                  print("cant launch url");
+                  customErrorDialog(context, title: "Error", content: "sorry there is error can't open link now please try again");
                 }
 
             },

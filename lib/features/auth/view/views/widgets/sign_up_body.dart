@@ -1,23 +1,17 @@
-import 'package:book_extchange/core/errors/failures.dart';
-import 'package:book_extchange/core/routing/routes.dart';
+import 'package:book_extchange/core/utils/measures.dart';
 import 'package:book_extchange/core/utils/validator_handler.dart';
 import 'package:book_extchange/core/widgets/custom_error_dialog.dart';
 import 'package:book_extchange/core/widgets/custom_main_button.dart';
+import 'package:book_extchange/core/widgets/custom_text_form_field.dart';
 import 'package:book_extchange/core/widgets/custom_white_logo_with_text.dart';
 import 'package:book_extchange/features/auth/view/view_models/sign_up_cubit/sign_up_cubit.dart';
 import 'package:book_extchange/features/auth/view/views/widgets/custom_back_button.dart';
-import 'package:book_extchange/features/auth/view/views/widgets/custom_signup_successful_dialog.dart';
-
-import 'package:book_extchange/features/auth/view/views/widgets/sign_up_drop_down_menu.dart';
 import 'package:book_extchange/features/auth/view/views/widgets/custom_head_text.dart';
-
+import 'package:book_extchange/features/auth/view/views/widgets/custom_signup_successful_dialog.dart';
 import 'package:book_extchange/features/auth/view/views/widgets/have_account.dart';
-
+import 'package:book_extchange/features/auth/view/views/widgets/sign_up_drop_down_menu.dart';
 import 'package:flutter/material.dart';
-import 'package:book_extchange/core/utils/measures.dart';
-import 'package:book_extchange/core/widgets/custom_text_form_field.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class SignUpBody extends StatefulWidget {
