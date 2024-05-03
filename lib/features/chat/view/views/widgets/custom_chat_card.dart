@@ -1,3 +1,5 @@
+// ignore_for_file: empty_catches
+
 import 'package:book_extchange/core/routing/routes.dart';
 import 'package:book_extchange/core/utils/measures.dart';
 import 'package:book_extchange/features/chat/data/models/chat_room_model.dart';
@@ -26,7 +28,7 @@ class CustomChatCard extends StatelessWidget {
       onTap: () {
         GoRouter.of(context).pushNamed(Routes.kChatDetailsView,extra: chatRoomModel.roomId);
       },
-      child: Container(
+      child: SizedBox(
         width: double.infinity,
         height: 100,
         child: Row(
@@ -39,7 +41,7 @@ class CustomChatCard extends StatelessWidget {
                 child: Image.network(chatRoomModel.imgUrl,fit: BoxFit.fill,),
               ),
             ),
-            SizedBox(width: 16,),
+            const SizedBox(width: 16,),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -50,7 +52,7 @@ class CustomChatCard extends StatelessWidget {
                       color: Colors.black
                   ),
                 ),
-                SizedBox(height: 5,),
+                const SizedBox(height: 5,),
                 SizedBox(
                   width: deviceWidth - 230,
                   child: Text(
@@ -62,8 +64,8 @@ class CustomChatCard extends StatelessWidget {
                 )
               ],
             ),
-            SizedBox(width: 16,),
-            dateTime == null ? SizedBox() :  Text("${dateTime!.day} / ${dateTime!.month}  ${dateTime!.hour}:${dateTime!.minute}"),
+            const SizedBox(width: 16,),
+            dateTime == null ? const SizedBox() :  Text("${dateTime!.day} / ${dateTime!.month}  ${dateTime!.hour}:${dateTime!.minute}"),
           ],
         ),
       ),

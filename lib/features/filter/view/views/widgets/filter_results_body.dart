@@ -14,9 +14,9 @@ class FilterResultsBody extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           children: [
-            books.length == 0 ? Padding(
-              padding: const EdgeInsets.only(top: 36),
-              child: const CustomNoAdsWidget(
+            books.length == 0 ? const Padding(
+              padding:  EdgeInsets.only(top: 36),
+              child:  CustomNoAdsWidget(
                 txt:
                 "There is No Ads Matches Your Filter Options Please Change it and try again",
               ),

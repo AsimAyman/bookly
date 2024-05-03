@@ -43,13 +43,13 @@ class _MyAdsBodyState extends State<MyAdsBody> {
                 const CustomSimpleAppBar(
                   txt: "My Ads",
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 36,
                 ),
 
                 //loading
                 state is FetchMyAdsLoading
-                    ? Expanded(child: const CustomCenterLoadingWidget())
+                    ? const Expanded(child:  CustomCenterLoadingWidget())
                     : const SizedBox(),
 
                 //successful

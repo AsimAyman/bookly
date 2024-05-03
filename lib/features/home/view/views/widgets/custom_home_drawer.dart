@@ -43,7 +43,7 @@ class CustomHomeDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.person,
             ),
             title: const Text('Profile'),
@@ -52,7 +52,7 @@ class CustomHomeDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.add,
             ),
             title: const Text('Advertise you book'),
@@ -61,7 +61,7 @@ class CustomHomeDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.book_online,
             ),
             title: const Text('Free E-Books'),
@@ -70,11 +70,11 @@ class CustomHomeDrawer extends StatelessWidget {
             },
           ),
 
-          Spacer(),
+          const Spacer(),
           ListTile(
             leading: Transform.rotate(
               angle: 180 * math.pi / 180,
-              child: Icon(
+              child: const Icon(
                 Icons.logout,
                 color: Colors.red,
               ),

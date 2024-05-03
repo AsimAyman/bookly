@@ -86,10 +86,10 @@ class CustomBookContainer extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 5,
         ),
-        myAd ? CustomEditAndDeleteMyBook(bookModel: bookModel,) : SizedBox()
+        myAd ? CustomEditAndDeleteMyBook(bookModel: bookModel,) : const SizedBox()
       ],
     );
   }
@@ -111,17 +111,17 @@ class CustomEditAndDeleteMyBook extends StatelessWidget {
               GoRouter.of(context).pushNamed(Routes.kEditBookView,extra: bookModel);
             },
             child: Container(
-              padding: EdgeInsets.all(8),
-              decoration: BoxDecoration(color: Colors.blue),
+              padding: const EdgeInsets.all(8),
+              decoration: const BoxDecoration(color: Colors.blue),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.edit,
                     color: Colors.white,
                     size: 26,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 8,
                   ),
                   Text(
@@ -149,17 +149,17 @@ class CustomEditAndDeleteMyBook extends StatelessWidget {
               );
             },
             child: Container(
-              padding: EdgeInsets.all(8),
-              decoration: BoxDecoration(color: Colors.red),
+              padding: const EdgeInsets.all(8),
+              decoration: const BoxDecoration(color: Colors.red),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.delete,
                     color: Colors.white,
                     size: 26,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 8,
                   ),
                   Text(

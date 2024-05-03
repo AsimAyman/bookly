@@ -20,20 +20,20 @@ class GoogleSearchResultsListView extends StatelessWidget {
       builder: (context, state) {
         return Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.symmetric(horizontal: 30),
               child: Text(
                 "Search Results",
                 style: StylesHandler.textStyle16Bold,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            state is FetchGoogleBookLoading ? CustomCenterLoadingWidget() : SizedBox(),
+            state is FetchGoogleBookLoading ? const CustomCenterLoadingWidget() : const SizedBox(),
             state is FetchGoogleBookSuccess ?  Expanded(
               child: ListView.builder(
                 itemBuilder: (context, index) {
@@ -42,7 +42,7 @@ class GoogleSearchResultsListView extends StatelessWidget {
                 itemCount: state.googleBooks.length,
               
               ),
-            ) : SizedBox(),
+            ) : const SizedBox(),
           ],
         );
       },

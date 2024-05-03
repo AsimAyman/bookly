@@ -1,3 +1,5 @@
+// ignore_for_file: empty_catches
+
 import 'package:book_extchange/core/errors/failures.dart';
 import 'package:book_extchange/core/utils/api_handler.dart';
 import 'package:book_extchange/features/filter/data/repos/filter_repo/filter_repo.dart';

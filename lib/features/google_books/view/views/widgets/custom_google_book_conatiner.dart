@@ -57,22 +57,22 @@ class CustomGoogleBookContainer extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                   SizedBox(height: 3,),
+                  const SizedBox(height: 3,),
                    Text(
                     bookModel.author,
                      maxLines: 2,
 
-                     style: TextStyle(
+                     style: const TextStyle(
                       fontSize: 16,
 
                       color: Color(0xff707070),
                     ),
                   ),
-                   SizedBox(height: 3,),
+                  const SizedBox(height: 3,),
                   Row(
                     children: [
-                       Text("0 \$",style: StylesHandler.textStyle20Bold,),
-                      Spacer(),
+                      const Text("0 \$",style: StylesHandler.textStyle20Bold,),
+                      const Spacer(),
                       CustomRatingRow(averageRating: bookModel.averageRating,ratingsCount: bookModel.ratingsCount),
                     ],
                   )

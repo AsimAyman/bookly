@@ -38,27 +38,27 @@ class FilterBody extends StatelessWidget {
                 SliverToBoxAdapter(
                   child: Column(
                     children: [
-                      SizedBox(height: 16,),
-                      CustomPriceSilder(),
-                      SizedBox(height: 16,),
+                      const SizedBox(height: 16,),
+                      const CustomPriceSilder(),
+                      const SizedBox(height: 16,),
                       CustomDropDownMenu<GovernModel>(
                         value: filterCubit.selectedGovernorate,
                         label: "Governorate",
                         items: filterCubit.governsList,
                         onSelect: filterCubit.onSelectGovernorate,
                       ),
-                      SizedBox(height: 16,),
+                      const SizedBox(height: 16,),
                       Divider(
                         color: Colors.grey.shade400,
                       ),
-                      SizedBox(height: 16,),
+                      const SizedBox(height: 16,),
                       CustomDropDownMenu<String>(
                         value: filterCubit.categoryType,
                         label: "Category",
-                        items: ["General", "Educational"],
+                        items: const ["General", "Educational"],
                         onSelect: filterCubit.onSelectCategory,
                       ),
-                      SizedBox(height: 16,),
+                      const SizedBox(height: 16,),
                       filterCubit.categoryType == "General" ?
                       CustomDropDownMenu<CategoryModel>(
                         value: filterCubit.generalCategory,
@@ -78,11 +78,11 @@ class FilterBody extends StatelessWidget {
                   hasScrollBody: false,
                   child: Column(
                     children: [
-                      Spacer(),
+                      const Spacer(),
                       CustomMainButton(txt: "Search",onTap: () {
                         filterCubit.filterBooks(BlocProvider.of<LoginCubit>(context).userModel.accessToken);
                       },),
-                      SizedBox(height: 16,),
+                      const SizedBox(height: 16,),
                     ],
                   ),
                 )

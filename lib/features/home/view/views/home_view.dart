@@ -46,7 +46,7 @@ class _HomeViewState extends State<HomeView> {
           return Scaffold(
             backgroundColor: Colors.white,
             key: BlocProvider.of<BottomNavCubit>(context).scaffoldKey,
-            drawer: CustomHomeDrawer(),
+            drawer: const CustomHomeDrawer(),
             bottomNavigationBar: Container(
               color: Theme.of(context).colorScheme.background,
               padding: const EdgeInsets.all(15),

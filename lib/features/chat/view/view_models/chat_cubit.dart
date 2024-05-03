@@ -1,3 +1,5 @@
+// ignore_for_file: empty_catches, depend_on_referenced_packages
+
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
@@ -62,7 +64,7 @@ class ChatCubit extends Cubit<ChatState> {
   }
 
   void listenToMessagesStream(String userAccessToken, String chatRoomId) async {
-     
+    newMessages = [];
     void onEvent(event) {
        
       if (event.eventName == "message.sent") {
@@ -95,20 +97,4 @@ class ChatCubit extends Cubit<ChatState> {
     }
   }
 
-  void onTriggerEventPressed() async {
-    try {
-      pusher.trigger(PusherEvent(
-        channelName: "chat.1",
-        eventName: "message.sent",
-        data: {
-          "content": "Message from pusher",
-          "buyer_id": 1,
-          "seller_id": 2,
-          "time": "23 Apr 2024 03:38 pm"
-        },
-      ));
-    } catch (e) {
-       
-    }
-  }
 }

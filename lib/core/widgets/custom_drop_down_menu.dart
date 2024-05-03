@@ -1,9 +1,11 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 
 class CustomDropDownMenu<T> extends StatefulWidget {
-  CustomDropDownMenu({ required this.value,required this.onSelect,required this.items, required this.label,this.width,super.key});
+   CustomDropDownMenu({ required this.value,required this.onSelect,required this.items, required this.label,this.width,super.key});
 
-  String label;
+  final String label;
   final List<T> items;
   final double? width;
   void Function (void) onSelect;
@@ -37,7 +39,7 @@ class _CustomDropDownMenuState extends State<CustomDropDownMenu> {
         items: [
           ...widget.items.map((e) {
             String text = e.runtimeType ==String ? e:e.name;
-            return DropdownMenuItem(value: e, child: Text('${text}'));
+            return DropdownMenuItem(value: e, child: Text(text));
           }),
         ],
         onChanged: (nwVal) {

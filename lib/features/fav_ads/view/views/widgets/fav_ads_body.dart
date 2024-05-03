@@ -40,14 +40,14 @@ class _FavAdsBodyState extends State<FavAdsBody> {
             child: Center(
               child: Column(
                 children: [
-                  CustomSimpleAppBar(
+                  const CustomSimpleAppBar(
                     txt: "Favoruites",
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 24,
                   ),
                   state is FavAdsLoading
-                      ? CustomCenterLoadingWidget()
+                      ? const CustomCenterLoadingWidget()
                       : state is FetchFavAdsSuccessfully
                           ? BlocProvider.of<FavAdsCubit>(context)
                                   .bookModelList

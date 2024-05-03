@@ -28,15 +28,22 @@ class _ChatDetailsBodyState extends State<ChatDetailsBody> {
     BlocProvider.of<ChatCubit>(context).listenToMessagesStream(
         BlocProvider.of<LoginCubit>(context).userModel.accessToken,
         widget.chatRoomId);
-    Future.delayed(Duration(milliseconds: 500), () {
+    Future.delayed(const Duration(milliseconds: 500), () {
       scrollController.jumpTo(scrollController.position.maxScrollExtent);
     });
   }
 
+  ChatCubit? _chatCubit;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _chatCubit =  BlocProvider.of<ChatCubit>(context);
+  }
+
   @override
   void dispose() {
-    // TODO: implement dispose
-    // BlocProvider.of<ChatCubit>(context).channel.unsubscribe();
+    _chatCubit?.channel.unsubscribe();
     super.dispose();
   }
 
@@ -57,15 +64,15 @@ class _ChatDetailsBodyState extends State<ChatDetailsBody> {
                 child: SingleChildScrollView(
                   controller: scrollController,
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Column(
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           height: 95,
                         ),
                         ListView.builder(
                           shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           itemCount: chatCubit
                               .chatRoomDetailsModel!.messageModels.length,
                           itemBuilder: (context, index) {
@@ -86,7 +93,7 @@ class _ChatDetailsBodyState extends State<ChatDetailsBody> {
                              
                             return ListView.builder(
                               shrinkWrap: true,
-                              physics: NeverScrollableScrollPhysics(),
+                              physics: const NeverScrollableScrollPhysics(),
                               itemCount: chatCubit.newMessages.length,
                               itemBuilder: (context, index) {
                                 return chatCubit.newMessages[index].senderId ==
@@ -101,7 +108,7 @@ class _ChatDetailsBodyState extends State<ChatDetailsBody> {
                             );
                           },
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 75,
                         ),
                       ],

@@ -9,18 +9,18 @@ class SenderMessageContainer extends StatelessWidget {
     return Align(
       alignment: Alignment.centerLeft,
       child: Container(
-        margin: EdgeInsets.only(bottom: 8),
+        margin: const EdgeInsets.only(bottom: 8),
         constraints: BoxConstraints(maxWidth: deviceWidth * 0.8),
         decoration: BoxDecoration(
             color: Colors.white,
             boxShadow: [
               BoxShadow(
-                offset: Offset(0, 4),
+                offset: const Offset(0, 4),
                 blurRadius: 4,
-                color: Color(0xff000000).withOpacity(0.25)
+                color: const Color(0xff000000).withOpacity(0.25)
               )
             ],
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(16),
               topRight: Radius.circular(16),
               bottomRight: Radius.circular(16),

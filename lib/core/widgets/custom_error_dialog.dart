@@ -8,8 +8,8 @@ Future<void> customErrorDialog(BuildContext context,{required String title,requi
     builder: (BuildContext context) {
       return AlertDialog(
         backgroundColor: Colors.red,
-        title:  Text(title,style: TextStyle(color: Colors.white),),
-        content: Text(content,style: TextStyle(color: Colors.white),),
+        title:  Text(title,style: const TextStyle(color: Colors.white),),
+        content: Text(content,style: const TextStyle(color: Colors.white),),
         actions: <Widget>[
           TextButton(
             child: const Text('close',style: TextStyle(color: Colors.black),),

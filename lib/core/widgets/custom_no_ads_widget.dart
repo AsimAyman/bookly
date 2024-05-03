@@ -16,7 +16,7 @@ class CustomNoAdsWidget extends StatelessWidget {
           "assets/images/404.svg",
           width: deviceWidth * 0.8,
         ),
-        SizedBox(height: 24,),
+        const SizedBox(height: 24,),
         Text(
           txt,
           textAlign: TextAlign.center,

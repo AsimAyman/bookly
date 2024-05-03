@@ -1,3 +1,5 @@
+// ignore_for_file: empty_catches
+
 class BookModel {
   final int id;
   final String title;

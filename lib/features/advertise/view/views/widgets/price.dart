@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:book_extchange/core/utils/validator_handler.dart';
 import 'package:book_extchange/core/widgets/custom_main_button.dart';
 import 'package:book_extchange/core/widgets/custom_text_form_field.dart';

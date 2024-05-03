@@ -25,7 +25,7 @@ class TextFormFieldSendMessage extends StatelessWidget {
           suffixIconColor: getColorWhenFocus(),
           suffixIcon: IconButton(onPressed: () {
             onSumbit!(textEditingController.text);
-          },icon: Icon(Icons.send)),
+          },icon: const Icon(Icons.send)),
           labelText: "Message",
           labelStyle: Theme.of(context).textTheme.bodyMedium,
           focusedBorder: OutlineInputBorder(

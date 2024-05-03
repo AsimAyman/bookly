@@ -65,7 +65,7 @@ class CustomPriceAndCity extends StatelessWidget {
                       Theme.of(context).colorScheme.primary),
                 )
               ],
-            ) : SizedBox(),
+            ) : const SizedBox(),
             const SizedBox(
               height: 4,
             ),
@@ -89,7 +89,7 @@ class CustomPriceAndCity extends StatelessWidget {
                       Theme.of(context).colorScheme.primary),
                 )
               ],
-            ) : SizedBox(),
+            ) : const SizedBox(),
           ],
         ),
         // const Text("12/4/2024")

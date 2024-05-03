@@ -1,3 +1,5 @@
+// ignore_for_file: empty_catches, depend_on_referenced_packages
+
 import 'dart:io';
 
 import 'package:book_extchange/core/errors/failures.dart';

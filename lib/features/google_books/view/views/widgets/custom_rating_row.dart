@@ -10,12 +10,12 @@ class CustomRatingRow extends StatelessWidget {
     return  Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(Icons.star,color: Colors.yellow,),
-        SizedBox(width: 5,),
+        const Icon(Icons.star,color: Colors.yellow,),
+        const SizedBox(width: 5,),
         Text(averageRating.toString(),style: StylesHandler.textStyle16Bold,),
-        SizedBox(width: 5,),
+        const SizedBox(width: 5,),
         Text(ratingsCount.toString(),style: StylesHandler.textStyle14,),
-        SizedBox(width: 5,),
+        const SizedBox(width: 5,),
       ],
     );
   }

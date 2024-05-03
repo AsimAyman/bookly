@@ -65,7 +65,7 @@ class _ResetPasswordBodyState extends State<ResetPasswordBody> {
                         const SizedBox(
                           height: 24,
                         ),
-                        Text(
+                        const Text(
                           "Enter the email address associated with your account and we will send you link to reset your password",
                         ),
                         const SizedBox(

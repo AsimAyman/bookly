@@ -13,7 +13,7 @@ class CustomContainerPointToBook extends StatelessWidget {
       onTap: () {
         GoRouter.of(context).pushNamed(Routes.kBookDetailsView,extra: bookModel);
       },
-      child: Container(
+      child: SizedBox(
         width: double.infinity,
         height: 80,
         child: Row(
@@ -29,7 +29,7 @@ class CustomContainerPointToBook extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 8,
             ),
             Column(
@@ -46,7 +46,7 @@ class CustomContainerPointToBook extends StatelessWidget {
                         fontWeight: FontWeight.bold, color: Colors.black),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8,
                 ),
                 Text(
@@ -58,7 +58,7 @@ class CustomContainerPointToBook extends StatelessWidget {
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               width: 5,
             ),
             Padding(
