@@ -84,7 +84,7 @@ class _SignUpBodyState extends State<SignUpBody> {
                                   .nameController,
                           hintTxt: "Name",
                           iconData: Icons.person,
-                          validator: ValidatorHandler.otherValidator,
+                          validator: ValidatorHandler.nameValidator,
                         ),
                         const SizedBox(
                           height: 8,

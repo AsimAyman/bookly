@@ -24,7 +24,7 @@ class FilterBody extends StatelessWidget {
         if(state is FetchFilterResultsFail){
           customErrorDialog(context, title: "There is Error", content: state.errorMessage);
         }
-        if (state is FetchFilterResultsLoading){
+        if (state is FetchFilterResultsSuccess){
           GoRouter.of(context).pushNamed(Routes.kFilterResultsView , extra: filterCubit.filterResults);
         }
       },

@@ -11,48 +11,48 @@ class FilterRepoImp extends FilterRepo {
   final Dio _dio;
 
   FilterRepoImp(this._dio);
+
   @override
   Future<Either<Failures, List<BookModel>>> filterAndFetchResults(
-      String userToken,
+    String userToken,
     String govern,
     bool searchByPrice,
     List<String> price,
     bool isEducational,
     String subCategoryID,
   ) async {
-     
-     
-     
-     
-     
     try {
-      var jsonData = await _dio.get(
-        "${ApiHandler.baseUrl}book",
-        options: Options(
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Authorization': "Bearer $userToken"
-          },
-        ),
-        data: {
-          "city": govern == "All" ? "" : govern,
-          "price": searchByPrice ?  price : "",
-          "category": isEducational ? "" : ["$subCategoryID"],
-          "sub_category" :isEducational ?  ["$subCategoryID"] : "",
-          "is_educational": isEducational ? "2" : "1"
-        }
-      );
+      print({
+        "city": govern == "All" ? "" : govern,
+        "price": searchByPrice ? price : "",
+        "category": isEducational ? ["17"] : ["$subCategoryID"],
+        "sub_category": isEducational ? ["$subCategoryID"] : ""
+      });
+
+      var jsonData = await _dio.get("${ApiHandler.baseUrl}book",
+          options: Options(
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+              'Authorization': "Bearer $userToken"
+            },
+          ),
+          data: {
+            "city": govern == "All" ? "" : govern,
+            "price": searchByPrice ? price : "",
+            "category": isEducational ? "17" : ["$subCategoryID"],
+            "sub_category": isEducational ? ["$subCategoryID"] : ""
+          });
       List<BookModel> bookModelList = [];
       for (var data in jsonData.data['data']) {
-        try{
+        try {
           bookModelList.add(BookModel.fromJson(data));
-        }catch(e){
-
-        }
+        } catch (e) {}
       }
       return right(bookModelList);
     } catch (e) {
+      print(e);
+
       if (e is DioException) {
         return left(ServerSideError.fromDioException(e));
       } else {
@@ -60,5 +60,4 @@ class FilterRepoImp extends FilterRepo {
       }
     }
   }
-
 }

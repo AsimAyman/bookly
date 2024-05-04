@@ -58,9 +58,10 @@ class _ChatDetailsBodyState extends State<ChatDetailsBody> {
             fit: StackFit.expand,
             children: [
               Positioned(
-                height: deviceHeight - 80,
+                // height: deviceHeight - 80,
                 width: deviceWidth,
                 bottom: 0,
+                top: 0,
                 child: SingleChildScrollView(
                   controller: scrollController,
                   child: Padding(
@@ -68,7 +69,7 @@ class _ChatDetailsBodyState extends State<ChatDetailsBody> {
                     child: Column(
                       children: [
                         const SizedBox(
-                          height: 95,
+                          height: 80,
                         ),
                         ListView.builder(
                           shrinkWrap: true,
