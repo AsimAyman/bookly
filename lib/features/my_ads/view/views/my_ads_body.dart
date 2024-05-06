@@ -1,10 +1,10 @@
-import 'package:book_extchange/core/utils/measures.dart';
-import 'package:book_extchange/core/widgets/custom_center_loading_widget.dart';
-import 'package:book_extchange/core/widgets/custom_no_ads_widget.dart';
-import 'package:book_extchange/core/widgets/custom_simple_app_bar.dart';
-import 'package:book_extchange/features/auth/view/view_models/login_cubit/login_cubit.dart';
-import 'package:book_extchange/features/home/view/views/widgets/custom_books_list_view_home.dart';
-import 'package:book_extchange/features/my_ads/view/view_models/my_ads_cubit.dart';
+import 'package:Bookly/core/utils/measures.dart';
+import 'package:Bookly/core/widgets/custom_center_loading_widget.dart';
+import 'package:Bookly/core/widgets/custom_no_ads_widget.dart';
+import 'package:Bookly/core/widgets/custom_simple_app_bar.dart';
+import 'package:Bookly/features/auth/view/view_models/login_cubit/login_cubit.dart';
+import 'package:Bookly/features/home/view/views/widgets/custom_books_list_view_home.dart';
+import 'package:Bookly/features/my_ads/view/view_models/my_ads_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';

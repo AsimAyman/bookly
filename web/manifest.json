@@ -1,6 +1,6 @@
 {
-    "name": "book_extchange",
-    "short_name": "book_extchange",
+    "name": "Bookly",
+    "short_name": "Bookly",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

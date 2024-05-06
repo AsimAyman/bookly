@@ -1,6 +1,6 @@
 
-import 'package:book_extchange/core/utils/measures.dart';
-import 'package:book_extchange/features/splash/view/view_models/splash_cubit/splash_cubit.dart';
+import 'package:Bookly/core/utils/measures.dart';
+import 'package:Bookly/features/splash/view/view_models/splash_cubit/splash_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

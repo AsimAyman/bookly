@@ -1,5 +1,5 @@
-import 'package:book_extchange/features/chat/data/models/chat_room_model.dart';
-import 'package:book_extchange/features/chat/view/views/widgets/custom_chat_card.dart';
+import 'package:Bookly/features/chat/data/models/chat_room_model.dart';
+import 'package:Bookly/features/chat/view/views/widgets/custom_chat_card.dart';
 import 'package:flutter/material.dart';
 
 class CustomChatRoomsListView extends StatelessWidget {

@@ -1,6 +1,6 @@
-import 'package:book_extchange/core/errors/failures.dart';
-import 'package:book_extchange/features/chat/data/models/chat_room_details_model.dart';
-import 'package:book_extchange/features/chat/data/models/chat_room_model.dart';
+import 'package:Bookly/core/errors/failures.dart';
+import 'package:Bookly/features/chat/data/models/chat_room_details_model.dart';
+import 'package:Bookly/features/chat/data/models/chat_room_model.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class ChatRepo {

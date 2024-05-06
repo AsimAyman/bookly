@@ -1,8 +1,8 @@
 // ignore_for_file: depend_on_referenced_packages
 
 import 'package:bloc/bloc.dart';
-import 'package:book_extchange/core/errors/failures.dart';
-import 'package:book_extchange/core/utils/api_handler.dart';
+import 'package:Bookly/core/errors/failures.dart';
+import 'package:Bookly/core/utils/api_handler.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 

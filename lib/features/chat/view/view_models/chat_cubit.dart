@@ -3,10 +3,10 @@
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
-import 'package:book_extchange/features/chat/data/models/chat_room_details_model.dart';
-import 'package:book_extchange/features/chat/data/models/chat_room_model.dart';
-import 'package:book_extchange/features/chat/data/models/message_model.dart';
-import 'package:book_extchange/features/chat/data/repos/chat_repo.dart';
+import 'package:Bookly/features/chat/data/models/chat_room_details_model.dart';
+import 'package:Bookly/features/chat/data/models/chat_room_model.dart';
+import 'package:Bookly/features/chat/data/models/message_model.dart';
+import 'package:Bookly/features/chat/data/repos/chat_repo.dart';
 import 'package:meta/meta.dart';
 import 'package:pusher_channels_flutter/pusher_channels_flutter.dart';
 

@@ -1,5 +1,5 @@
-import 'package:book_extchange/core/routing/routes.dart';
-import 'package:book_extchange/features/auth/view/view_models/login_cubit/login_cubit.dart';
+import 'package:Bookly/core/routing/routes.dart';
+import 'package:Bookly/features/auth/view/view_models/login_cubit/login_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';

@@ -1,6 +1,6 @@
-import 'package:book_extchange/features/auth/view/views/widgets/custom_head_text.dart';
-import 'package:book_extchange/features/filter/view/views/widgets/filter_results_body.dart';
-import 'package:book_extchange/features/home/data/models/book_model.dart';
+import 'package:Bookly/features/auth/view/views/widgets/custom_head_text.dart';
+import 'package:Bookly/features/filter/view/views/widgets/filter_results_body.dart';
+import 'package:Bookly/features/home/data/models/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

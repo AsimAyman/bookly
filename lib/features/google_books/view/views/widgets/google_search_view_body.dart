@@ -1,6 +1,6 @@
 
-import 'package:book_extchange/features/google_books/view/views/widgets/custom_google_search_text_field.dart';
-import 'package:book_extchange/features/google_books/view/views/widgets/google_search_results_list_view.dart';
+import 'package:Bookly/features/google_books/view/views/widgets/custom_google_search_text_field.dart';
+import 'package:Bookly/features/google_books/view/views/widgets/google_search_results_list_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

@@ -1,6 +1,6 @@
-import 'package:book_extchange/core/utils/measures.dart';
-import 'package:book_extchange/core/widgets/custom_main_button.dart';
-import 'package:book_extchange/features/auth/view/views/widgets/custom_head_text.dart';
+import 'package:Bookly/core/utils/measures.dart';
+import 'package:Bookly/core/widgets/custom_main_button.dart';
+import 'package:Bookly/features/auth/view/views/widgets/custom_head_text.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

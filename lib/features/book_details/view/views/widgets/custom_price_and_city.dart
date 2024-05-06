@@ -1,4 +1,4 @@
-import 'package:book_extchange/features/home/data/models/book_model.dart';
+import 'package:Bookly/features/home/data/models/book_model.dart';
 import 'package:flutter/material.dart';
 
 class CustomPriceAndCity extends StatelessWidget {

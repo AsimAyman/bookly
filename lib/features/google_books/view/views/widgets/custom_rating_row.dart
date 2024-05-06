@@ -1,4 +1,4 @@
-import 'package:book_extchange/core/utils/stylies_handler.dart';
+import 'package:Bookly/core/utils/stylies_handler.dart';
 import 'package:flutter/material.dart';
 
 class CustomRatingRow extends StatelessWidget {

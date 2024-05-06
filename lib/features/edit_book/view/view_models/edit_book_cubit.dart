@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:book_extchange/features/edit_book/data/repos/edit_book_repo.dart';
-import 'package:book_extchange/features/home/data/models/book_model.dart';
+import 'package:Bookly/features/edit_book/data/repos/edit_book_repo.dart';
+import 'package:Bookly/features/home/data/models/book_model.dart';
 import 'package:flutter/material.dart';
 
 part 'edit_book_state.dart';

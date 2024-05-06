@@ -1,6 +1,6 @@
-import 'package:book_extchange/core/widgets/custom_error_dialog.dart';
-import 'package:book_extchange/features/advertise/view/view_models/advertise_cubit/advertise_cubit.dart';
-import 'package:book_extchange/features/advertise/view/view_models/advertise_cubit/advertise_state.dart';
+import 'package:Bookly/core/widgets/custom_error_dialog.dart';
+import 'package:Bookly/features/advertise/view/view_models/advertise_cubit/advertise_cubit.dart';
+import 'package:Bookly/features/advertise/view/view_models/advertise_cubit/advertise_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';

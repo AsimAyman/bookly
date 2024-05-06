@@ -1,7 +1,7 @@
-import 'package:book_extchange/core/errors/failures.dart';
-import 'package:book_extchange/core/utils/api_handler.dart';
-import 'package:book_extchange/features/fav_ads/data/repos/fav_ads_repo.dart';
-import 'package:book_extchange/features/home/data/models/book_model.dart';
+import 'package:Bookly/core/errors/failures.dart';
+import 'package:Bookly/core/utils/api_handler.dart';
+import 'package:Bookly/features/fav_ads/data/repos/fav_ads_repo.dart';
+import 'package:Bookly/features/home/data/models/book_model.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 

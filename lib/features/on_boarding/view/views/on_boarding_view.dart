@@ -1,4 +1,4 @@
-import 'package:book_extchange/features/on_boarding/view/views/widgets/on_boarding_body.dart';
+import 'package:Bookly/features/on_boarding/view/views/widgets/on_boarding_body.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingView extends StatelessWidget {

@@ -1,5 +1,5 @@
-import 'package:book_extchange/core/utils/measures.dart';
-import 'package:book_extchange/features/on_boarding/data/models/on_board_content_model.dart';
+import 'package:Bookly/core/utils/measures.dart';
+import 'package:Bookly/features/on_boarding/data/models/on_board_content_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

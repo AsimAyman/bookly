@@ -1,8 +1,8 @@
-import 'package:book_extchange/core/utils/stylies_handler.dart';
-import 'package:book_extchange/core/widgets/custom_center_loading_widget.dart';
-import 'package:book_extchange/core/widgets/custom_error_dialog.dart';
-import 'package:book_extchange/features/google_books/view/view_models/google_books_cubit.dart';
-import 'package:book_extchange/features/google_books/view/views/widgets/custom_google_book_conatiner.dart';
+import 'package:Bookly/core/utils/stylies_handler.dart';
+import 'package:Bookly/core/widgets/custom_center_loading_widget.dart';
+import 'package:Bookly/core/widgets/custom_error_dialog.dart';
+import 'package:Bookly/features/google_books/view/view_models/google_books_cubit.dart';
+import 'package:Bookly/features/google_books/view/views/widgets/custom_google_book_conatiner.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

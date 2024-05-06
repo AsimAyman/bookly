@@ -1,4 +1,4 @@
-package com.example.book_extchange
+package website.bookly.Bookly
 
 import io.flutter.embedding.android.FlutterActivity
 

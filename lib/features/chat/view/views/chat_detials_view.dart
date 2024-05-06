@@ -1,7 +1,7 @@
-import 'package:book_extchange/core/widgets/custom_error_dialog.dart';
-import 'package:book_extchange/features/auth/view/view_models/login_cubit/login_cubit.dart';
-import 'package:book_extchange/features/chat/view/view_models/chat_cubit.dart';
-import 'package:book_extchange/features/chat/view/views/widgets/chat_detials_body.dart';
+import 'package:Bookly/core/widgets/custom_error_dialog.dart';
+import 'package:Bookly/features/auth/view/view_models/login_cubit/login_cubit.dart';
+import 'package:Bookly/features/chat/view/view_models/chat_cubit.dart';
+import 'package:Bookly/features/chat/view/views/widgets/chat_detials_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';

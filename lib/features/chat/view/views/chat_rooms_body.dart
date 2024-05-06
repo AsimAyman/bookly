@@ -1,10 +1,10 @@
-import 'package:book_extchange/core/widgets/custom_error_dialog.dart';
-import 'package:book_extchange/core/widgets/custom_no_ads_widget.dart';
-import 'package:book_extchange/features/auth/view/view_models/login_cubit/login_cubit.dart';
-import 'package:book_extchange/features/chat/view/view_models/chat_cubit.dart';
-import 'package:book_extchange/features/chat/view/views/widgets/custom_chat_rooms_list_view.dart';
-import 'package:book_extchange/features/home/view/view_models/bottom_nav_cubit/bottom_nav_cubit.dart';
-import 'package:book_extchange/features/home/view/views/widgets/home_app_bar.dart';
+import 'package:Bookly/core/widgets/custom_error_dialog.dart';
+import 'package:Bookly/core/widgets/custom_no_ads_widget.dart';
+import 'package:Bookly/features/auth/view/view_models/login_cubit/login_cubit.dart';
+import 'package:Bookly/features/chat/view/view_models/chat_cubit.dart';
+import 'package:Bookly/features/chat/view/views/widgets/custom_chat_rooms_list_view.dart';
+import 'package:Bookly/features/home/view/view_models/bottom_nav_cubit/bottom_nav_cubit.dart';
+import 'package:Bookly/features/home/view/views/widgets/home_app_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';

@@ -1,8 +1,8 @@
 // ignore_for_file: depend_on_referenced_packages
 
 import 'package:bloc/bloc.dart';
-import 'package:book_extchange/features/google_books/data/models/google_book_model.dart';
-import 'package:book_extchange/features/google_books/data/repos/google_repo.dart';
+import 'package:Bookly/features/google_books/data/models/google_book_model.dart';
+import 'package:Bookly/features/google_books/data/repos/google_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 

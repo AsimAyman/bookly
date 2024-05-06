@@ -1,6 +1,6 @@
-import 'package:book_extchange/features/auth/view/view_models/login_cubit/login_cubit.dart';
-import 'package:book_extchange/features/fav_ads/view/view_models/fav_ads_cubit.dart';
-import 'package:book_extchange/features/home/data/models/book_model.dart';
+import 'package:Bookly/features/auth/view/view_models/login_cubit/login_cubit.dart';
+import 'package:Bookly/features/fav_ads/view/view_models/fav_ads_cubit.dart';
+import 'package:Bookly/features/home/data/models/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

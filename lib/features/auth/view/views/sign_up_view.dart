@@ -1,7 +1,7 @@
 
-import 'package:book_extchange/core/routing/locator_service.dart';
-import 'package:book_extchange/features/auth/view/view_models/sign_up_cubit/sign_up_cubit.dart';
-import 'package:book_extchange/features/auth/view/views/widgets/sign_up_body.dart';
+import 'package:Bookly/core/routing/locator_service.dart';
+import 'package:Bookly/features/auth/view/view_models/sign_up_cubit/sign_up_cubit.dart';
+import 'package:Bookly/features/auth/view/views/widgets/sign_up_body.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

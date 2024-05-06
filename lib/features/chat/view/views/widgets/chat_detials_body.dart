@@ -1,10 +1,10 @@
-import 'package:book_extchange/core/utils/measures.dart';
-import 'package:book_extchange/features/auth/view/view_models/login_cubit/login_cubit.dart';
-import 'package:book_extchange/features/chat/view/view_models/chat_cubit.dart';
-import 'package:book_extchange/features/chat/view/views/widgets/custom_container_point_to_book.dart';
-import 'package:book_extchange/features/chat/view/views/widgets/custom_text_form_field_send_message.dart';
-import 'package:book_extchange/features/chat/view/views/widgets/my_message_container.dart';
-import 'package:book_extchange/features/chat/view/views/widgets/sender_message_container.dart';
+import 'package:Bookly/core/utils/measures.dart';
+import 'package:Bookly/features/auth/view/view_models/login_cubit/login_cubit.dart';
+import 'package:Bookly/features/chat/view/view_models/chat_cubit.dart';
+import 'package:Bookly/features/chat/view/views/widgets/custom_container_point_to_book.dart';
+import 'package:Bookly/features/chat/view/views/widgets/custom_text_form_field_send_message.dart';
+import 'package:Bookly/features/chat/view/views/widgets/my_message_container.dart';
+import 'package:Bookly/features/chat/view/views/widgets/sender_message_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:book_extchange/core/routing/routes.dart';
-import 'package:book_extchange/core/utils/measures.dart';
-import 'package:book_extchange/core/widgets/custom_main_button.dart';
-import 'package:book_extchange/core/widgets/dot_indicator.dart';
-import 'package:book_extchange/features/on_boarding/data/models/on_board_content_model.dart';
-import 'package:book_extchange/features/on_boarding/view/views/widgets/on_boarding_content.dart';
+import 'package:Bookly/core/routing/routes.dart';
+import 'package:Bookly/core/utils/measures.dart';
+import 'package:Bookly/core/widgets/custom_main_button.dart';
+import 'package:Bookly/core/widgets/dot_indicator.dart';
+import 'package:Bookly/features/on_boarding/data/models/on_board_content_model.dart';
+import 'package:Bookly/features/on_boarding/view/views/widgets/on_boarding_content.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -42,7 +42,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _timer = Timer.periodic(const Duration(seconds: 1), (Timer timer) {
+    _timer = Timer.periodic(const Duration(seconds: 5), (Timer timer) {
       if (_pageIndex < 2) {
         _pageIndex++;
       } else {

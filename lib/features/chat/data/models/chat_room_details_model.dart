@@ -1,7 +1,7 @@
 // ignore_for_file: empty_catches
 
-import 'package:book_extchange/features/chat/data/models/message_model.dart';
-import 'package:book_extchange/features/home/data/models/book_model.dart';
+import 'package:Bookly/features/chat/data/models/message_model.dart';
+import 'package:Bookly/features/home/data/models/book_model.dart';
 
 class ChatRoomDetailsModel {
   final String sellerName;
