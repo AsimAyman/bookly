@@ -1,6 +1,6 @@
 
 
-import 'package:Bookly/core/utils/measures.dart';
+import 'package:bookly/core/utils/measures.dart';
 import 'package:flutter/material.dart';
 class TitleTextField extends StatelessWidget {
   const TitleTextField({

@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:Bookly/features/fav_ads/data/repos/fav_ads_repo.dart';
-import 'package:Bookly/features/home/data/models/book_model.dart';
+import 'package:bookly/features/fav_ads/data/repos/fav_ads_repo.dart';
+import 'package:bookly/features/home/data/models/book_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:meta/meta.dart';
 

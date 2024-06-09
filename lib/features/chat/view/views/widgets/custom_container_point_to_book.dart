@@ -1,6 +1,6 @@
-import 'package:Bookly/core/routing/routes.dart';
-import 'package:Bookly/core/utils/measures.dart';
-import 'package:Bookly/features/home/data/models/book_model.dart';
+import 'package:bookly/core/routing/routes.dart';
+import 'package:bookly/core/utils/measures.dart';
+import 'package:bookly/features/home/data/models/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

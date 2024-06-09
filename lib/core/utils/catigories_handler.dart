@@ -1,5 +1,5 @@
-import 'package:Bookly/features/filter/data/models/category_model.dart';
-import 'package:Bookly/features/filter/data/repos/category_repo/category_repo.dart';
+import 'package:bookly/features/filter/data/models/category_model.dart';
+import 'package:bookly/features/filter/data/repos/category_repo/category_repo.dart';
 
  class CategoryHandler {
 

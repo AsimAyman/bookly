@@ -1,8 +1,8 @@
 // ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
-import 'package:Bookly/core/errors/failures.dart';
-import 'package:Bookly/core/utils/api_handler.dart';
-import 'package:Bookly/features/auth/data/models/govern_model.dart';
+import 'package:bookly/core/errors/failures.dart';
+import 'package:bookly/core/utils/api_handler.dart';
+import 'package:bookly/features/auth/data/models/govern_model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 

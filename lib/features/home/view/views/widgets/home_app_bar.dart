@@ -20,7 +20,7 @@ class HomeAppBar extends StatelessWidget {
           ),
         ),
         Text(
-          "BOOKLY",
+          "bookly",
           style: Theme.of(context).textTheme.headlineMedium!.copyWith(
               color: Theme.of(context).colorScheme.primary,
               fontWeight: FontWeight.w900),

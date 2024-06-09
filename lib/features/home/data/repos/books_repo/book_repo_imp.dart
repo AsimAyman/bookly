@@ -1,9 +1,9 @@
 // ignore_for_file: empty_catches
 
-import 'package:Bookly/core/errors/failures.dart';
-import 'package:Bookly/core/utils/api_handler.dart';
-import 'package:Bookly/features/home/data/models/book_model.dart';
-import 'package:Bookly/features/home/data/repos/books_repo/book_repo.dart';
+import 'package:bookly/core/errors/failures.dart';
+import 'package:bookly/core/utils/api_handler.dart';
+import 'package:bookly/features/home/data/models/book_model.dart';
+import 'package:bookly/features/home/data/repos/books_repo/book_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 

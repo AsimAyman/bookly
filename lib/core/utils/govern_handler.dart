@@ -1,4 +1,4 @@
-import 'package:Bookly/features/auth/data/models/govern_model.dart';
+import 'package:bookly/features/auth/data/models/govern_model.dart';
 
 class GovernHandler {
   static const List<GovernModel> allGoverns =[

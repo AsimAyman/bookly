@@ -1,6 +1,6 @@
-import 'package:Bookly/features/auth/view/views/widgets/custom_head_text.dart';
-import 'package:Bookly/features/google_books/data/models/google_book_model.dart';
-import 'package:Bookly/features/google_books/view/views/widgets/google_book_details_view_body.dart';
+import 'package:bookly/features/auth/view/views/widgets/custom_head_text.dart';
+import 'package:bookly/features/google_books/data/models/google_book_model.dart';
+import 'package:bookly/features/google_books/view/views/widgets/google_book_details_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

@@ -1,6 +1,5 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="website.bookly.Bookly">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="website.bookly.app">
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
     <!-- Provide required visibility configuration for API level 30 and above -->
     <queries>
         <!-- If your app checks for call support -->
@@ -14,7 +13,7 @@
         </intent>
     </queries>
     <application
-        android:label="Bookly"
+        android:label="bookly"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true">

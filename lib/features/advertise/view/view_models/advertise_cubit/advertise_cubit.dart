@@ -2,16 +2,16 @@
 
 import 'dart:io';
 
-import 'package:Bookly/core/routing/routes.dart';
-import 'package:Bookly/features/advertise/data/repo/add_book_repo.dart';
-import 'package:Bookly/features/advertise/view/view_models/advertise_cubit/advertise_state.dart';
-import 'package:Bookly/features/advertise/view/views/widgets/categories.dart';
-import 'package:Bookly/features/advertise/view/views/widgets/details.dart';
-import 'package:Bookly/features/advertise/view/views/widgets/images.dart';
-import 'package:Bookly/features/advertise/view/views/widgets/location.dart';
-import 'package:Bookly/features/advertise/view/views/widgets/price.dart';
-import 'package:Bookly/features/filter/data/models/category_model.dart';
-import 'package:Bookly/features/home/data/models/book_model.dart';
+import 'package:bookly/core/routing/routes.dart';
+import 'package:bookly/features/advertise/data/repo/add_book_repo.dart';
+import 'package:bookly/features/advertise/view/view_models/advertise_cubit/advertise_state.dart';
+import 'package:bookly/features/advertise/view/views/widgets/categories.dart';
+import 'package:bookly/features/advertise/view/views/widgets/details.dart';
+import 'package:bookly/features/advertise/view/views/widgets/images.dart';
+import 'package:bookly/features/advertise/view/views/widgets/location.dart';
+import 'package:bookly/features/advertise/view/views/widgets/price.dart';
+import 'package:bookly/features/filter/data/models/category_model.dart';
+import 'package:bookly/features/home/data/models/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -76,11 +76,14 @@ class AdvertiseCubit extends Cubit<AdvertiseState> {
 
   void onSelectCategory(value) {
     selectedCategory = value;
+    print("onSelectCategory selectedCategory = ${selectedCategory?.id ?? "null"}");
     emit(SelectedCategory());
   }
 
   void onSelectGrade(value) {
     selectedGrade = value;
+    print("onSelectGrade selectedGrade = ${selectedGrade?.id ?? "null"}");
+
     emit(SelectedGrade());
   }
 
@@ -132,7 +135,8 @@ class AdvertiseCubit extends Cubit<AdvertiseState> {
     } else {
       emit(AddBookLoadingState());
       String cat = selectedBookType == "Educational" ? "17" : selectedCategory!.id.toString() ;
-      String subCat = selectedBookType == "Educational" ? selectedCategory!.id.toString() : "";
+      print(cat);
+      String subCat = selectedBookType == "Educational" ? selectedGrade!.id.toString() : "";
       BookModel bookModel = BookModel(
         id: 0,
         title: titleController.text,

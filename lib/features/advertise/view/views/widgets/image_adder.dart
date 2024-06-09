@@ -1,5 +1,5 @@
-import 'package:Bookly/core/utils/measures.dart';
-import 'package:Bookly/features/advertise/view/view_models/advertise_cubit/advertise_cubit.dart';
+import 'package:bookly/core/utils/measures.dart';
+import 'package:bookly/features/advertise/view/view_models/advertise_cubit/advertise_cubit.dart';
 import 'package:flutter/material.dart';
 class ImageAdder extends StatelessWidget {
  const ImageAdder({super.key});

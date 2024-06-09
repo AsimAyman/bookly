@@ -1,6 +1,6 @@
-import 'package:Bookly/core/widgets/custom_no_ads_widget.dart';
-import 'package:Bookly/features/home/data/models/book_model.dart';
-import 'package:Bookly/features/home/view/views/widgets/custom_books_list_view_home.dart';
+import 'package:bookly/core/widgets/custom_no_ads_widget.dart';
+import 'package:bookly/features/home/data/models/book_model.dart';
+import 'package:bookly/features/home/view/views/widgets/custom_books_list_view_home.dart';
 import 'package:flutter/cupertino.dart';
 
 class FilterResultsBody extends StatelessWidget {

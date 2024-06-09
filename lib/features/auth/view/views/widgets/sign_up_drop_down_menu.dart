@@ -1,7 +1,7 @@
 
-import 'package:Bookly/core/utils/govern_handler.dart';
-import 'package:Bookly/core/utils/measures.dart';
-import 'package:Bookly/features/auth/data/models/govern_model.dart';
+import 'package:bookly/core/utils/govern_handler.dart';
+import 'package:bookly/core/utils/measures.dart';
+import 'package:bookly/features/auth/data/models/govern_model.dart';
 import 'package:flutter/material.dart';
 
 

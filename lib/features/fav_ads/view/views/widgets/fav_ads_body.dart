@@ -1,10 +1,10 @@
-import 'package:Bookly/core/widgets/custom_center_loading_widget.dart';
-import 'package:Bookly/core/widgets/custom_error_dialog.dart';
-import 'package:Bookly/core/widgets/custom_no_ads_widget.dart';
-import 'package:Bookly/core/widgets/custom_simple_app_bar.dart';
-import 'package:Bookly/features/auth/view/view_models/login_cubit/login_cubit.dart';
-import 'package:Bookly/features/fav_ads/view/view_models/fav_ads_cubit.dart';
-import 'package:Bookly/features/home/view/views/widgets/custom_books_list_view_home.dart';
+import 'package:bookly/core/widgets/custom_center_loading_widget.dart';
+import 'package:bookly/core/widgets/custom_error_dialog.dart';
+import 'package:bookly/core/widgets/custom_no_ads_widget.dart';
+import 'package:bookly/core/widgets/custom_simple_app_bar.dart';
+import 'package:bookly/features/auth/view/view_models/login_cubit/login_cubit.dart';
+import 'package:bookly/features/fav_ads/view/view_models/fav_ads_cubit.dart';
+import 'package:bookly/features/home/view/views/widgets/custom_books_list_view_home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

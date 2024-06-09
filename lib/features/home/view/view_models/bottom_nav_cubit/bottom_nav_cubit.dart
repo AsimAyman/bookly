@@ -1,9 +1,9 @@
 // ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
-import 'package:Bookly/features/chat/view/views/chat_rooms_body.dart';
-import 'package:Bookly/features/fav_ads/view/views/widgets/fav_ads_body.dart';
-import 'package:Bookly/features/home/view/views/widgets/home_body.dart';
-import 'package:Bookly/features/my_ads/view/views/my_ads_body.dart';
+import 'package:bookly/features/chat/view/views/chat_rooms_body.dart';
+import 'package:bookly/features/fav_ads/view/views/widgets/fav_ads_body.dart';
+import 'package:bookly/features/home/view/views/widgets/home_body.dart';
+import 'package:bookly/features/my_ads/view/views/my_ads_body.dart';
 import 'package:flutter/material.dart';
 
 part 'bottom_nav_state.dart';

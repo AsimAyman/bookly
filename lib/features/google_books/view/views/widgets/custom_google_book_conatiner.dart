@@ -1,8 +1,8 @@
-import 'package:Bookly/core/routing/routes.dart';
-import 'package:Bookly/core/utils/assets_handler.dart';
-import 'package:Bookly/core/utils/stylies_handler.dart';
-import 'package:Bookly/features/google_books/data/models/google_book_model.dart';
-import 'package:Bookly/features/google_books/view/views/widgets/custom_rating_row.dart';
+import 'package:bookly/core/routing/routes.dart';
+import 'package:bookly/core/utils/assets_handler.dart';
+import 'package:bookly/core/utils/stylies_handler.dart';
+import 'package:bookly/features/google_books/data/models/google_book_model.dart';
+import 'package:bookly/features/google_books/view/views/widgets/custom_rating_row.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

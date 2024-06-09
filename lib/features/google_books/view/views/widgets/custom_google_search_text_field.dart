@@ -1,5 +1,5 @@
-import 'package:Bookly/core/widgets/custom_text_form_field.dart';
-import 'package:Bookly/features/google_books/view/view_models/google_books_cubit.dart';
+import 'package:bookly/core/widgets/custom_text_form_field.dart';
+import 'package:bookly/features/google_books/view/view_models/google_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,7 +13,9 @@ class CustomGoogleSearchTextField extends StatelessWidget {
         child: CustomTextFormField(
             autoFocus: true,
             onChanged: (txt) {
-              BlocProvider.of<GoogleBooksCubit>(context).fetchBooks(txt);
+              if(txt.isNotEmpty){
+                BlocProvider.of<GoogleBooksCubit>(context).fetchBooks(txt);
+              }
             },
             textEditingController: TextEditingController(),
             hintTxt: "Search",

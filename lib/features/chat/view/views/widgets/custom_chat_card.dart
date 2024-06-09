@@ -1,8 +1,8 @@
 // ignore_for_file: empty_catches
 
-import 'package:Bookly/core/routing/routes.dart';
-import 'package:Bookly/core/utils/measures.dart';
-import 'package:Bookly/features/chat/data/models/chat_room_model.dart';
+import 'package:bookly/core/routing/routes.dart';
+import 'package:bookly/core/utils/measures.dart';
+import 'package:bookly/features/chat/data/models/chat_room_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';

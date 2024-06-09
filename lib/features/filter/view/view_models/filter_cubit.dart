@@ -1,10 +1,10 @@
 import 'package:bloc/bloc.dart';
-import 'package:Bookly/core/utils/govern_handler.dart';
-import 'package:Bookly/features/auth/data/models/govern_model.dart';
-import 'package:Bookly/features/filter/data/models/category_model.dart';
-import 'package:Bookly/features/filter/data/repos/category_repo/category_repo.dart';
-import 'package:Bookly/features/filter/data/repos/filter_repo/filter_repo.dart';
-import 'package:Bookly/features/home/data/models/book_model.dart';
+import 'package:bookly/core/utils/govern_handler.dart';
+import 'package:bookly/features/auth/data/models/govern_model.dart';
+import 'package:bookly/features/filter/data/models/category_model.dart';
+import 'package:bookly/features/filter/data/repos/category_repo/category_repo.dart';
+import 'package:bookly/features/filter/data/repos/filter_repo/filter_repo.dart';
+import 'package:bookly/features/home/data/models/book_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';

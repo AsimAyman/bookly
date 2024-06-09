@@ -1,5 +1,5 @@
-import 'package:Bookly/core/widgets/custom_error_dialog.dart';
-import 'package:Bookly/features/google_books/view/views/widgets/custom_button.dart';
+import 'package:bookly/core/widgets/custom_error_dialog.dart';
+import 'package:bookly/features/google_books/view/views/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 

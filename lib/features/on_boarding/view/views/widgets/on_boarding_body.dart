@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:Bookly/core/routing/routes.dart';
-import 'package:Bookly/core/utils/measures.dart';
-import 'package:Bookly/core/widgets/custom_main_button.dart';
-import 'package:Bookly/core/widgets/dot_indicator.dart';
-import 'package:Bookly/features/on_boarding/data/models/on_board_content_model.dart';
-import 'package:Bookly/features/on_boarding/view/views/widgets/on_boarding_content.dart';
+import 'package:bookly/core/routing/routes.dart';
+import 'package:bookly/core/utils/measures.dart';
+import 'package:bookly/core/widgets/custom_main_button.dart';
+import 'package:bookly/core/widgets/dot_indicator.dart';
+import 'package:bookly/features/on_boarding/data/models/on_board_content_model.dart';
+import 'package:bookly/features/on_boarding/view/views/widgets/on_boarding_content.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -22,7 +22,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
   final List<OnBoardContentModel> _onBoardContents = [
     OnBoardContentModel(
       img: 'assets/images/welcome.svg',
-      title: 'Welcome To Bookly',
+      title: 'Welcome To bookly',
       description: 'Your gateway to buying and selling used books.',
     ),
     OnBoardContentModel(

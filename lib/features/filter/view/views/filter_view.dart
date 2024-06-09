@@ -1,10 +1,10 @@
-import 'package:Bookly/core/routing/locator_service.dart';
-import 'package:Bookly/features/auth/view/view_models/login_cubit/login_cubit.dart';
-import 'package:Bookly/features/auth/view/views/widgets/custom_head_text.dart';
-import 'package:Bookly/features/filter/data/repos/category_repo/category_repo.dart';
-import 'package:Bookly/features/filter/data/repos/filter_repo/filter_repo.dart';
-import 'package:Bookly/features/filter/view/view_models/filter_cubit.dart';
-import 'package:Bookly/features/filter/view/views/widgets/filter_body.dart';
+import 'package:bookly/core/routing/locator_service.dart';
+import 'package:bookly/features/auth/view/view_models/login_cubit/login_cubit.dart';
+import 'package:bookly/features/auth/view/views/widgets/custom_head_text.dart';
+import 'package:bookly/features/filter/data/repos/category_repo/category_repo.dart';
+import 'package:bookly/features/filter/data/repos/filter_repo/filter_repo.dart';
+import 'package:bookly/features/filter/view/view_models/filter_cubit.dart';
+import 'package:bookly/features/filter/view/views/widgets/filter_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';

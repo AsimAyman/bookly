@@ -1,8 +1,8 @@
-import 'package:Bookly/core/utils/stylies_handler.dart';
-import 'package:Bookly/features/google_books/data/models/google_book_model.dart';
-import 'package:Bookly/features/google_books/view/views/widgets/custom_book_image.dart';
-import 'package:Bookly/features/google_books/view/views/widgets/custom_buy_and_preview_row.dart';
-import 'package:Bookly/features/google_books/view/views/widgets/custom_rating_row.dart';
+import 'package:bookly/core/utils/stylies_handler.dart';
+import 'package:bookly/features/google_books/data/models/google_book_model.dart';
+import 'package:bookly/features/google_books/view/views/widgets/custom_book_image.dart';
+import 'package:bookly/features/google_books/view/views/widgets/custom_buy_and_preview_row.dart';
+import 'package:bookly/features/google_books/view/views/widgets/custom_rating_row.dart';
 import 'package:flutter/material.dart';
 
 class GoogleBookDetailsViewBody extends StatefulWidget {

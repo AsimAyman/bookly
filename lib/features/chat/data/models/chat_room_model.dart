@@ -1,4 +1,4 @@
-import 'package:Bookly/features/chat/data/models/message_model.dart';
+import 'package:bookly/features/chat/data/models/message_model.dart';
 
 class ChatRoomModel {
   final String imgUrl;

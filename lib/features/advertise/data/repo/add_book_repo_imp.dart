@@ -2,10 +2,10 @@
 
 import 'dart:io';
 
-import 'package:Bookly/core/errors/failures.dart';
-import 'package:Bookly/core/utils/api_handler.dart';
-import 'package:Bookly/features/advertise/data/repo/add_book_repo.dart';
-import 'package:Bookly/features/home/data/models/book_model.dart';
+import 'package:bookly/core/errors/failures.dart';
+import 'package:bookly/core/utils/api_handler.dart';
+import 'package:bookly/features/advertise/data/repo/add_book_repo.dart';
+import 'package:bookly/features/home/data/models/book_model.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:http_parser/http_parser.dart';
@@ -18,9 +18,28 @@ class AddBookRepoImp extends AddBookRepo {
   @override
   Future<Either<Failures, void>> addNewBook(
       String userToken, BookModel bookModel, List<File> imgs) async {
+    print("##start##");
+    print("""
+                data: {
+            "title": bookModel.title,
+            "description": bookModel.description,
+            "city": bookModel.govern,
+            "town": bookModel.city,
+            "price": double.parse (bookModel.price),
+            "exchangable": bookModel.isExchangeable == 1 ? true : false,
+            "negationable": bookModel.isNegotiable == 1 ? true : false,
+            "state": true,
+            "category_id": ${bookModel.category},
+            "sub_category_id": ${bookModel.subCategory},
+            "subject_id": "",
+            "attachments": imgpaths
+          });
+      """);
     try {
       List<String> imgpaths = await uploadImages(userToken, imgs);
-       
+
+
+
       var jsonData = await _dio.post("${ApiHandler.baseUrl}book/store",
           options: Options(
             headers: {

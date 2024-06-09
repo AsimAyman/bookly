@@ -1,5 +1,5 @@
-import 'package:Bookly/core/errors/failures.dart';
-import 'package:Bookly/features/filter/data/models/category_model.dart';
+import 'package:bookly/core/errors/failures.dart';
+import 'package:bookly/features/filter/data/models/category_model.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class CategoryRepo {

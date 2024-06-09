@@ -1,10 +1,10 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:Bookly/core/utils/validator_handler.dart';
-import 'package:Bookly/core/widgets/custom_main_button.dart';
-import 'package:Bookly/core/widgets/custom_text_form_field.dart';
-import 'package:Bookly/features/advertise/view/view_models/advertise_cubit/advertise_cubit.dart';
-import 'package:Bookly/features/advertise/view/views/widgets/description_text_filed.dart';
+import 'package:bookly/core/utils/validator_handler.dart';
+import 'package:bookly/core/widgets/custom_main_button.dart';
+import 'package:bookly/core/widgets/custom_text_form_field.dart';
+import 'package:bookly/features/advertise/view/view_models/advertise_cubit/advertise_cubit.dart';
+import 'package:bookly/features/advertise/view/views/widgets/description_text_filed.dart';
 import 'package:flutter/material.dart';
 
 class Details extends StatelessWidget {

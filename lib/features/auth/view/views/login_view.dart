@@ -1,4 +1,4 @@
-import 'package:Bookly/features/auth/view/views/widgets/login_body.dart';
+import 'package:bookly/features/auth/view/views/widgets/login_body.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatelessWidget {

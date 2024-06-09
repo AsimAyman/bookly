@@ -1,8 +1,8 @@
-import 'package:Bookly/core/errors/failures.dart';
-import 'package:Bookly/core/utils/api_handler.dart';
-import 'package:Bookly/features/auth/data/models/govern_model.dart';
-import 'package:Bookly/features/auth/data/models/user_model.dart';
-import 'package:Bookly/features/auth/view/view_models/login_cubit/login_cubit.dart';
+import 'package:bookly/core/errors/failures.dart';
+import 'package:bookly/core/utils/api_handler.dart';
+import 'package:bookly/features/auth/data/models/govern_model.dart';
+import 'package:bookly/features/auth/data/models/user_model.dart';
+import 'package:bookly/features/auth/view/view_models/login_cubit/login_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
